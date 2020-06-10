@@ -1,15 +1,18 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import React from 'react';
+
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider, Text } from '@ui-kitten/components';
-import LoginButton from './src/components/loginButton'
+import { ApplicationProvider, Layout } from '@ui-kitten/components';
 
-const App = () => {
-  return (
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <LoginButton />
-    </ApplicationProvider>
-  );
-}
+import { default as theme } from './ui-kitten-theme.json';
+import Main from './src/pages/Main';
 
-export default App
+const App = () => (
+  <ApplicationProvider
+    {...eva}
+    theme={{ ...eva.light, ...theme }}
+  >
+    <Main />
+  </ApplicationProvider>
+);
+
+export default App;
