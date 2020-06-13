@@ -1,19 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Começar</Text>
-    </View>
-  );
-}
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider, Layout } from '@ui-kitten/components';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import { default as theme } from './ui-kitten-theme.json';
+import Main from './src/pages/Main';
+
+const App = () => (
+  <ApplicationProvider
+    {...eva}
+    theme={{ ...eva.light, ...theme }}
+  >
+    <Main />
+  </ApplicationProvider>
+);
+
+export default App;
