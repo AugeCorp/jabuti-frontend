@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Card, Text, Icon } from '@ui-kitten/components'
 
-const EconomicsCard = (props) => {
+const EconomyCard = (props) => {
   return (
     <View>
       <Card style={styles.card}>
@@ -21,8 +21,6 @@ const EconomicsCard = (props) => {
 const styles = StyleSheet.create({
   card: {
     marginTop: 30,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
   },
   icon: {
     width: 15,
@@ -30,4 +28,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default EconomicsCard
+export default EconomyCard
