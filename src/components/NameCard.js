@@ -20,7 +20,6 @@ const NameCard = (props) => {
 const styles = StyleSheet.create({
   card: {
     marginTop: 30,
-    borderColor: 'black',
   },
   icon: {
     width: 40,
