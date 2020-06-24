@@ -7,6 +7,7 @@ const NameCard = (props) => {
     <View>
       <Card style={styles.card}>
         <Icon style={styles.icon} fill='black' name='person-outline' />
+        <Text>carteira de</Text>
         <Text>
           {props.name}
         </Text>
