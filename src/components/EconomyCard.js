@@ -7,8 +7,8 @@ const EconomyCard = (props) => {
     <View>
       <Card style={styles.card}>
         <Text>economia do mês</Text>        
-        <Text>seus gastos:</Text>
-        <Text>seus ganhos:</Text>
+        <Text>seus gastos: {props.spend}</Text>
+        <Text>seus ganhos: {props.income}</Text>
         <Text onPress={() => Linking.openURL('http://google.com')}>
           detalhes
         </Text>
