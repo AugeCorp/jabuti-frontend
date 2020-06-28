@@ -13,8 +13,11 @@ const Main = () => {
       <RedirectCard url="/gastos" title="Gastos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
       <RedirectCard url="/renda" title="Renda" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
       <RedirectCard url="/gráficos" title="Gráficos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
+      <Button onPress={() => navigation.navigate('Graphics')} style={styles.button} status='primary'>
+        PRIMARY
+      </Button>
     </ScrollView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
