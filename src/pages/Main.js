@@ -3,10 +3,10 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Layout, Toggle, Text } from '@ui-kitten/components';
 
-export default function App() {
+export default function Main({navigation}) {
   return (
     <Layout style={styles.container} level='1'>
-        <Button style={styles.button} status='primary'>
+        <Button onPress={() => navigation.navigate('Graphics')} style={styles.button} status='primary'>
         PRIMARY
         </Button>
 
