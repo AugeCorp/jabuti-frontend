@@ -1,83 +1,27 @@
-import React from 'react';
+import React from 'react'
+import { StyleSheet, ScrollView } from 'react-native'
+import { Icon } from '@ui-kitten/components'
+import NameCard from '../components/NameCard'
+import EconomyCard from '../components/EconomyCard'
+import RedirectCard from '../components/RedirectCard'
 
-import { StyleSheet, View } from 'react-native';
-import { Button, Layout, Toggle, Text } from '@ui-kitten/components';
-import SignUpIn from './SignUpIn';
-
-export default function App() {
+const Main = () => {
   return (
-    <Layout style={styles.container} level='1'>
-      <Button style={styles.button} status='success'>
-      SUCCESS
-      </Button>
-
-      <Button style={styles.button} status='info'>
-      INFO
-      </Button>
-
-      <Button style={styles.button} status='warning'>
-      WARNING
-      </Button>
-
-      <Button style={styles.button} status='danger'>
-      DANGER
-      </Button>
-
-      <Button style={styles.button} status='basic'>
-      BASIC
-      </Button>
-
-      <View style={styles.controlContainer}>
-      <Button style={styles.button} status='control'>
-          CONTROL
-      </Button>
-      </View>
-      <Toggle>
-          Checked:
-      </Toggle>
-
-      <View>
-          <Text category='h1' appearance='hint'>H1</Text>
-          <Text category='h2'>H2</Text>
-          <Text category='h3'>H3</Text>
-          <Text category='h4'>H4</Text>
-          <Text category='h5'>H5</Text>
-          <Text category='h6'>H6</Text>
-      </View>
-
-      <View>
-          <Text category='s1'>S1</Text>
-          <Text category='s2'>S2</Text>
-      </View>
-
-      <View>
-          <Text category='p1'>P1</Text>
-          <Text category='p2'>P2</Text>
-      </View>
-
-      <View>
-          <Text category='c1'>C1</Text>
-          <Text category='c2'>C2</Text>
-          <Text category='label'>LABEL</Text>
-      </View>
-      <SignUpIn />
-    </Layout>
+    <ScrollView>
+      <NameCard name="Lucas Zacarias" />
+      <EconomyCard majorExpense="1255,60" minorExpense="15,10" spend="100" income="10000" />
+      <RedirectCard url="/gastos" title="Gastos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
+      <RedirectCard url="/renda" title="Renda" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
+      <RedirectCard url="/gráficos" title="Gráficos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+  icon: {
+    width: 30,
+    height: 30,
   },
-  button: {
-    margin: 2,
-  },
-  controlContainer: {
-    borderRadius: 4,
-    margin: 2,
-    padding: 6,
-    justifyContent: 'center',
-    backgroundColor: '#3366FF',
-  },
-});
+})
+
+export default Main
