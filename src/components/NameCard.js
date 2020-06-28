@@ -6,12 +6,12 @@ const NameCard = (props) => {
   return (
     <View>
       <Card style={styles.card}>
-        <Icon style={styles.icon} fill='black' name='person-outline' />
+        <Icon style={styles.icon} fill='black' name='arrow-ios-downward-outline' />
         <Text>carteira de</Text>
         <Text>
           {props.name}
         </Text>
-        <Icon style={styles.icon} fill='black' name='arrow-ios-downward-outline' />
+        <Icon style={styles.icon} fill='black' name='person' />
       </Card>
     </View>
   )
