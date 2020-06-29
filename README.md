@@ -1,2 +1,2 @@
 # jabuti-frontend
-FrontEnd do projeto Jabuti.
+Toda parte visual e de interação com o usuário, funcionando através de requisições API para o backend.
