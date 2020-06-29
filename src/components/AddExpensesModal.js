@@ -40,7 +40,6 @@ const AddExpenseModal = () => {
             À vista
           </CheckBox>
 
-          <Radio style={styles.radio} status='primary' checked={priorityLevel === 'highest'} onChange={() => setPriorityLevel('highest')}>prioridade</Radio>
           <Radio style={styles.radio} status='success' checked={priorityLevel === 'high'} onChange={() => setPriorityLevel('high')}>alta</Radio>
           <Radio style={styles.radio} status='warning' checked={priorityLevel === 'medium'} onChange={() => setPriorityLevel('medium')}>média</Radio>
           <Radio style={styles.radio} status='danger' checked={priorityLevel === 'low'} onChange={() => setPriorityLevel('low')}>baixa</Radio>
