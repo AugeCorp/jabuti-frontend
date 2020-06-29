@@ -1,10 +1,12 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Text, Icon } from '@ui-kitten/components'
+import { useNavigation } from '@react-navigation/native'
 
-const RedirectCard = ({title, icon, url}) => {
+const RedirectCard = ({title, icon, screenName}) => {
+  const navigation = useNavigation()
   return (
-    <TouchableOpacity onPress={() => console.log(url)} style={styles.card}>
+    <TouchableOpacity onPress={() => navigation.navigate(screenName)} style={styles.card}>
       <View>
         {icon}
         <Text>{title}</Text>

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Button, Icon, Text, Modal, Card, Input, Toggle, Calendar } from '@ui-kitten/components'
 
-const AddIncomeButton = () => {
+const AddIncomeModal = () => {
   const [visibleModal, setVisibleModal] = useState(false)
-  const [checked, setFixExpense] = useState(false)
+  const [fixExpense, setFixExpense] = useState(false)
   const [date, setDate] = useState(new Date())
 
   const PlusIcon = (props) => (<Icon {...props} name='plus-outline'/>)
@@ -22,8 +22,8 @@ const AddIncomeButton = () => {
           <Input placeholder="Nome" />
           <Input placeholder="Valor" />
           <Text>É uma renda fixa?</Text>
-          <Toggle checked={checked} onChange={(isFixed) => onFixExpenseChange(isFixed)}>
-            {() => checked === false ? (<Text> Não</Text>) : (<Text> Sim</Text>)}
+          <Toggle checked={fixExpense} onChange={(isFixed) => onFixExpenseChange(isFixed)}>
+            {fixExpense === false ? <Text> Não</Text> : <Text> Sim</Text>}
           </Toggle>
 
           <Text>Selecione o dia do recebimento:</Text>
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default AddIncomeButton
+export default AddIncomeModal

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Card, Input, Text } from '@ui-kitten/components'
 
-const IncomeCard = () => {
+const IncomeList = () => {
   const [rows, setRows] = useState([])
 
   const incomes = [
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default IncomeCard
+export default IncomeList

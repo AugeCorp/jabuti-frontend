@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Card, Input, Text } from '@ui-kitten/components'
 
-const ExpensesCard = () => {
+const ExpensesList = () => {
   const [rows, setRows] = useState([])
 
   const expenses = [
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default ExpensesCard
+export default ExpensesList

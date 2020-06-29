@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
-import * as eva from '@eva-design/eva';
-import { Input, Text } from '@ui-kitten/components';
-import { StyleSheet, View } from 'react-native';
-import GradientButton from '../components/GradientButton';
+import React, { useState } from 'react'
+import { Input, Text } from '@ui-kitten/components'
+import { StyleSheet, View } from 'react-native'
 
 const SignUpIn = () => {
-	const [value, setValue] = useState('')
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
 	
 	return (
 		<View>
-			<Text style={styles.text} category='label'>fazer login:</Text>
-			<Input style={styles.inputField} placeholder='e-mail' value={value} onChangeText={nextValue => setValue(nextValue)} />
-			<Input style={styles.inputField} placeholder='senha' value={value} onChangeText={nextValue => setValue(nextValue)} />
+			<Text 
+				style={styles.text} 
+				category='label'>
+				fazer login:
+			</Text>
+			<Input 
+				style={styles.inputField} 
+				placeholder='e-mail' 
+				value={value} 
+				onChangeText={email => setEmail(email)} 
+			/>
+			<Input 
+				style={styles.inputField} 
+				placeholder='senha' 
+				value={value} 
+				onChangeText={password => setPassword(password)} 
+			/>
 		</View>
   )
 }

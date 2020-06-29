@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet, ScrollView } from 'react-native'
-import AddIncomeButton from '../components/AddIncomeButton'
-import IncomeCard from '../components/IncomeCard'
+import AddIncomeModal from '../components/AddIncomeModal'
+import IncomeList from '../components/IncomeList'
 
 const Incomes = () => {
   return (
     <ScrollView>
-      <IncomeCard />
-      <AddIncomeButton />
+      <IncomeList />
+      <AddIncomeModal />
     </ScrollView>
   );
 }

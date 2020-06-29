@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Button, Icon, Text, Modal, Card, Input, Toggle, CheckBox, Radio } from '@ui-kitten/components'
 
-const AddExpenseButton = () => {
+const AddExpenseModal = () => {
   const [visibleModal, setVisibleModal] = useState(false)
-  const [checked, setFixExpense] = useState(false)
+  const [fixExpense, setFixExpense] = useState(false)
   const [paymentType, setPaymentType] = useState('cash')
   const [priorityLevel, setPriorityLevel] = useState('highest')
-
 
   const PlusIcon = (props) => (<Icon {...props} name='plus-outline'/>)
 
@@ -19,9 +18,6 @@ const AddExpenseButton = () => {
     setPaymentType(type)
   }
 
-  const handlePriorityLevel = (priority) => {
-    setPriorityLevel(priority)
-  }
 
   return (
     <View>
@@ -32,8 +28,8 @@ const AddExpenseButton = () => {
           <Input placeholder="Nome" />
           <Input placeholder="Preço" />
           <Text>É um gasto fixo?</Text>
-          <Toggle checked={checked} onChange={(isFixed) => onFixExpenseChange(isFixed)}>
-            {() => checked === false ? (<Text> Não</Text>) : (<Text> Sim</Text>)}
+          <Toggle checked={fixExpense} onChange={(isFixed) => onFixExpenseChange(isFixed)}>
+            {fixExpense === false ? <Text> Não</Text> : <Text> Sim</Text>}
           </Toggle>
           <Input placeholder="Categoria" />
 
@@ -44,10 +40,10 @@ const AddExpenseButton = () => {
             À vista
           </CheckBox>
 
-          <Radio style={styles.radio} status='primary' checked={priorityLevel === 'highest'} onChange={() => handlePriorityLevel('highest')}>prioridade</Radio>
-          <Radio style={styles.radio} status='success' checked={priorityLevel === 'high'} onChange={() => handlePriorityLevel('high')}>alta</Radio>
-          <Radio style={styles.radio} status='warning' checked={priorityLevel === 'medium'} onChange={() => handlePriorityLevel('medium')}>média</Radio>
-          <Radio style={styles.radio} status='danger' checked={priorityLevel === 'low'} onChange={() => handlePriorityLevel('low')}>baixa</Radio>
+          <Radio style={styles.radio} status='primary' checked={priorityLevel === 'highest'} onChange={() => setPriorityLevel('highest')}>prioridade</Radio>
+          <Radio style={styles.radio} status='success' checked={priorityLevel === 'high'} onChange={() => setPriorityLevel('high')}>alta</Radio>
+          <Radio style={styles.radio} status='warning' checked={priorityLevel === 'medium'} onChange={() => setPriorityLevel('medium')}>média</Radio>
+          <Radio style={styles.radio} status='danger' checked={priorityLevel === 'low'} onChange={() => setPriorityLevel('low')}>baixa</Radio>
 
           <Button style={styles.button2} onPress={() => setVisibleModal(false)}>
             Registrar
@@ -75,4 +71,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default AddExpenseButton
+export default AddExpenseModal

@@ -2,37 +2,17 @@ import React from 'react'
 
 import * as eva from '@eva-design/eva'
 import { default as theme } from './ui-kitten-theme.json'
-import { ApplicationProvider } from '@ui-kitten/components'
-
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-
-import Main from './src/pages/Main'
-import Graphics from './src/pages/Graphics'
-
-const Stack = createStackNavigator()
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components'
+import { EvaIconsPack } from '@ui-kitten/eva-icons'
+import Routes from './src/routes'
 
 const App = () => (
-  <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen 
-          name="Main" 
-          component={Main} 
-          options={{
-            title: 'Gastos',
-            headerTintColor: '#5719BE'
-          }} />
-        <Stack.Screen 
-          name="Graphics" 
-          component={Graphics}
-          options={{
-            title: 'Renda',
-            headerTintColor: '#5719BE'
-          }} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  </ApplicationProvider>
+  <>
+    <IconRegistry icons={EvaIconsPack} />
+    <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
+      <Routes />
+    </ApplicationProvider>
+  </>
 );
 
 export default App;

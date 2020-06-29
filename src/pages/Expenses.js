@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet, ScrollView } from 'react-native'
-import ExpensesCard from '../components/ExpensesCard'
-import AddExpenseButton from '../components/AddExpenseButton'
+import ExpensesList from '../components/ExpensesList'
+import AddExpenseModal from '../components/AddExpensesModal'
 
 const Expenses = () => {
   return (
     <ScrollView>
-      <ExpensesCard />
-      <AddExpenseButton />
+      <ExpensesList />
+      <AddExpenseModal />
     </ScrollView>
   );
 }

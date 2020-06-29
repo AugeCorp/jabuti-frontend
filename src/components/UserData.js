@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Card, Text, Icon } from '@ui-kitten/components'
 
-const NameCard = (props) => {
+const UserData = (props) => {
   return (
     <View>
       <Card style={styles.card}>
@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default NameCard
+export default UserData
