@@ -20,8 +20,10 @@ const AddExpenseModal = () => {
 
 
   return (
-    <View>
-      <Button onPress={() => setVisibleModal(true)} style={styles.button} accessoryLeft={PlusIcon} />
+    <View style={styles.modal}>
+      {visibleModal && (
+        <Button onPress={() => setVisibleModal(true)} style={styles.button} accessoryLeft={PlusIcon} />
+      )}
 
       <Modal visible={visibleModal} style={styles.modal}>
         <Card disabled={true}>
@@ -58,9 +60,13 @@ const styles = StyleSheet.create({
     width: 380,
   },
   button: {
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
     borderRadius: 5,
+    position: 'absolute',
+    right: 70,
+    bottom: -530,
+    zIndex: 999,
   },
   button2: {
     marginTop: 30,
