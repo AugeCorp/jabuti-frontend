@@ -19,13 +19,13 @@ const UserData = (props) => {
 const styles = StyleSheet.create({
   title: {
     position: 'absolute',
-    marginLeft: 270,
+    marginLeft: 265,
     marginTop: 15,
   },
   name: {
     color: colors.primary,
     marginTop: 20,
-    marginLeft: 160,
+    marginLeft: 150,
     fontSize: 20,
   },
   card: {
