@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Card, Input, Text } from '@ui-kitten/components'
+import AddExpenseModal from './AddExpensesModal'
 
 const ExpensesList = () => {
   const [rows, setRows] = useState([])
@@ -38,6 +39,7 @@ const ExpensesList = () => {
     <View>
       <Card style={styles.card}>
         <Input placeholder='Pesquisar por nome, data, valor...' onChangeText={value => handleTextInput(value)} />
+        <AddExpenseModal />
         <ScrollView style={styles.card}> 
           {rows.map(row => <Card key={row.id}><Text>{row.description + ' ---- ' + row.price}</Text></Card>)}
         </ScrollView>
