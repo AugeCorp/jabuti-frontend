@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 10,
+    marginTop: 30,
     padding: 10,
     backgroundColor: 'transparent',
     borderColor: 'transparent',
