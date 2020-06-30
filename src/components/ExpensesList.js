@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   icon: {
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
     marginRight: 10,
   },
   text: {
