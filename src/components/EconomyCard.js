@@ -9,10 +9,10 @@ const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
         <Text>resumo do mês</Text>
 
         <Text>maior gasto</Text>
-        <Text>R${majorExpense}</Text>
+        <Text style={styles.major}>R${majorExpense}</Text>
 
         <Text>menor gasto</Text>
-        <Text>R${minorExpense}</Text>
+        <Text style={styles.minor}>R${minorExpense}</Text>
 
         <Text>seus ganhos: {income}</Text>
         <Text>seus gastos: {expenses}</Text>
@@ -27,8 +27,18 @@ const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
 }
 
 const styles = StyleSheet.create({
+  major: {
+    color: '#B73838',
+  },
+  minor: {
+    color: '#009947',
+  },
   card: {
     marginTop: 30,
+    width: 370,
+    alignSelf: 'center',
+    borderColor: 'white',
+    borderRadius: 15,
   },
   icon: {
     width: 15,

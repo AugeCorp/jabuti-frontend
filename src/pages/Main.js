@@ -9,9 +9,8 @@ const Main = () => {
   return (
     <ScrollView>
       <UserData name="Lucas Zacarias" />
-      <View style={styles.cutecard}/>
       <Text>este mês você economizou</Text>
-      <Text>R$ 9.990.900,00</Text>
+      <Text style={styles.economy}>R$ 9.990.900,00</Text>
       <EconomyCard majorExpense="1255,60" minorExpense="15,10" spend="100" income="10000" />
       <RedirectCard screenName="Expenses" title="Gastos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
       <RedirectCard screenName="Incomes" title="Renda" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
@@ -21,8 +20,8 @@ const Main = () => {
 }
 
 const styles = StyleSheet.create({
-  cutecard: {
-    backgroundColor: 'black',
+  economy: {
+    color: '#5719BE',
   },
   icon: {
     width: 30,
