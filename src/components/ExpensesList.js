@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Card, Input, Text, Icon } from '@ui-kitten/components'
 import AddExpenseModal from './AddExpensesModal'
+import { colors } from '../helper/GlobalStyle'
 
 const ExpensesList = () => {
   const [rows, setRows] = useState([])
@@ -11,18 +12,22 @@ const ExpensesList = () => {
       id: 1,
       description: 'Banana',
       price: '2,00',
+      icon: <Icon style={styles.icon} fill={colors.primary} name='arrow-ios-downward-outline' />,
     }, {
       id: 2,
       description: 'Café',
       price: '1,50',
+      icon: <Icon style={styles.icon} fill={colors.primary} name='arrow-ios-downward-outline' />,
     }, {
       id: 3,
       description: 'Maça',
       price: '7,00',
+      icon: <Icon style={styles.icon} fill={colors.primary} name='arrow-ios-downward-outline' />,
     }, {
       id: 4,
       description: 'Manga',
       price: '7,00',
+      icon: <Icon style={styles.icon} fill={colors.primary} name='arrow-ios-downward-outline' />,
     },
   ]
 
@@ -43,7 +48,7 @@ const ExpensesList = () => {
         <ScrollView> 
           {rows.map(row => (
             <Card style={styles.listCard} key={row.id}>
-              <Icon style={styles.icon} fill='#5719BE' name='arrow-ios-downward-outline' />
+              {row.icon}
               <Text category="h6">{row.description}</Text>
               <Text category="h6">RS {row.price}</Text>
             </Card>
