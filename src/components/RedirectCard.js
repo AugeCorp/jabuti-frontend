@@ -10,7 +10,7 @@ const RedirectCard = ({title, icon, screenName}) => {
       <View>
         {icon}
         <Text>{title}</Text>
-        <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' />
+        <Icon style={styles.icon} fill='#5719BE' name='arrow-ios-forward-outline' />
       </View>
     </TouchableOpacity>
   )
@@ -20,8 +20,11 @@ const styles = StyleSheet.create({
   card: {
     marginTop: 30,
     borderWidth: 1,
-    borderColor: 'grey',
+    borderColor: 'white',
     borderRadius: 20,
+    backgroundColor: 'white',
+    width: 370,
+    alignSelf: 'center',
   },
   icon: {
     width: 30,
