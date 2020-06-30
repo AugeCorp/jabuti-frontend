@@ -6,7 +6,6 @@ const Expenses = () => {
   return (
     <ScrollView>
       <ExpensesList />
-      <AddExpenseModal />
     </ScrollView>
   );
 }

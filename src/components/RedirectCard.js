@@ -19,7 +19,7 @@ const RedirectCard = ({title, icon, screenName}) => {
 const styles = StyleSheet.create({
   card: {
     borderWidth: 1,
-    borderColor: 'grey',
+    borderColor: 'white',
     borderRadius: 20,
     backgroundColor: 'white',
     width: 355,

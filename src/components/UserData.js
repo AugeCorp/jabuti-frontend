@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Card, Text, Icon } from '@ui-kitten/components'
-import { colors, text } from '../helper/GlobalStyle'
+import { Text, Icon } from '@ui-kitten/components'
+import { colors } from '../helper/GlobalStyle'
 
 const UserData = (props) => {
   return (

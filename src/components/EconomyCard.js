@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Card, Text, Icon } from '@ui-kitten/components'
+import { Text, Icon } from '@ui-kitten/components'
 import { colors, text } from '../helper/GlobalStyle'
 
 const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
