@@ -6,18 +6,18 @@ const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
   return (
     <View>
       <Card style={styles.card}>
-        <Text>resumo do mês</Text>
+        <Text style={styles.cardTitle} category='h6'>resumo do mês</Text>
 
-        <Text>maior gasto</Text>
+        <Text category='c2' style={styles.expensesLabel}>MAIOR GASTO</Text>
         <Text style={styles.major}>R${majorExpense}</Text>
 
-        <Text>menor gasto</Text>
+        <Text category='c2' style={styles.expensesLabel}>MENOR GASTO</Text>
         <Text style={styles.minor}>R${minorExpense}</Text>
 
-        <Text>seus ganhos: {income}</Text>
-        <Text>seus gastos: {expenses}</Text>
+        <Text category='h6' style={styles.graphicsLabel}>seus ganhos: {income}</Text>
+        <Text category='h6' style={styles.graphicsLabel}>seus gastos: {expenses}</Text>
 
-        <Text onPress={() => console.log('aaaaa')}>
+        <Text category='p2' onPress={() => console.log('aaaaa')}>
           detalhes
         </Text>
         <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' />
@@ -27,10 +27,18 @@ const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
 }
 
 const styles = StyleSheet.create({
+  expensesLabel: {
+    color: '#9F9F9F',
+  },
+  graphicsLabel: {
+    color: '#9F9F9F',
+  },
   major: {
+    fontSize: 24,
     color: '#B73838',
   },
   minor: {
+    fontSize: 24,
     color: '#009947',
   },
   card: {
@@ -40,9 +48,12 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderRadius: 15,
   },
+  cardTitle: {
+    textAlign: 'center',
+  },
   icon: {
-    width: 15,
-    height: 15,
+    width: 12,
+    height: 12,
   },
 })
 

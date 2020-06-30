@@ -7,8 +7,8 @@ const UserData = (props) => {
     <View>
       <Card style={styles.card}>
         <Icon style={styles.icon} fill='#5719BE' name='arrow-ios-downward-outline' />
-        <Text>carteira de</Text>
-        <Text style={styles.name}>
+        <Text category='p2'>carteira de</Text>
+        <Text category='h5' style={styles.name}>
           {props.name}
         </Text>
         <Icon style={styles.icon} fill='#5719BE' name='person' />
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
   },
 })
 
