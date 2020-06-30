@@ -1,29 +1,50 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Card, Text, Icon } from '@ui-kitten/components'
+import { colors, text } from '../helper/GlobalStyle'
 
 const UserData = (props) => {
   return (
-    <View>
-      <Card style={styles.card}>
-        <Icon style={styles.icon} fill='black' name='arrow-ios-downward-outline' />
-        <Text>carteira de</Text>
-        <Text>
-          {props.name}
-        </Text>
-        <Icon style={styles.icon} fill='black' name='person' />
-      </Card>
+    <View style={styles.card}>
+      <Icon style={styles.icon} fill='#5719BE' name='arrow-ios-downward-outline' />
+      <Text style={styles.title}>carteira de</Text>
+      <Text style={styles.name}>
+        {props.name}
+      </Text>
+      <Icon style={styles.iconUser} fill='#5719BE' name='person' />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  title: {
+    position: 'absolute',
+    marginLeft: 270,
+    marginTop: 15,
+  },
+  name: {
+    color: colors.primary,
+    marginTop: 20,
+    marginLeft: 160,
+    fontSize: 20,
+  },
   card: {
-    marginTop: 30,
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 10,
+    padding: 10,
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
   },
   icon: {
     width: 40,
     height: 40,
+    marginTop: 10,
+  },
+  iconUser: {
+    width: 50,
+    height: 50,
+    margin: 0,
   },
 })
 
