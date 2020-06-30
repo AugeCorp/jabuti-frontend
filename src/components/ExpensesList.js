@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
-import { Card, Input, Text } from '@ui-kitten/components'
+import { Card, Input, Text, Icon } from '@ui-kitten/components'
 import AddExpenseModal from './AddExpensesModal'
 
 const ExpensesList = () => {
@@ -39,18 +39,37 @@ const ExpensesList = () => {
     <View>
       <Card style={styles.card}>
         <Input placeholder='Pesquisar por nome, data, valor...' onChangeText={value => handleTextInput(value)} />
-        <AddExpenseModal />
-        <ScrollView style={styles.card}> 
-          {rows.map(row => <Card key={row.id}><Text>{row.description + ' ---- ' + row.price}</Text></Card>)}
+        <Text style={styles.date} category="c2">24/06/2020</Text>
+        <ScrollView> 
+          {rows.map(row => (
+            <Card style={styles.listCard} key={row.id}>
+              <Icon style={styles.icon} fill='#5719BE' name='arrow-ios-downward-outline' />
+              <Text category="h6">{row.description}</Text>
+              <Text category="h6">RS {row.price}</Text>
+            </Card>
+          ))}
         </ScrollView>
+        <AddExpenseModal />
       </Card>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  date: {
+    marginLeft: 15,
+    marginBottom: 5,
+  },
   card: {
-    marginTop: 30,
+    marginTop: 5,
+    borderColor: 'transparent',
+    backgroundColor: 'transparent',
+  },
+  listCard: {
+    backgroundColor: 'white',
+    borderColor: 'white',
+    borderRadius: 15,
+    marginBottom: 8,
   },
   icon: {
     width: 30,
