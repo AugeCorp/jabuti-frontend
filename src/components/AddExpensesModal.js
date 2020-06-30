@@ -1,23 +1,16 @@
 import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Button, Icon, Text, Modal, Card, Input, Toggle, CheckBox, Radio } from '@ui-kitten/components'
+import { Button, Icon, Text, Modal, Card, Input, Toggle, CheckBox, Radio, Calendar } from '@ui-kitten/components'
 
 const AddExpenseModal = () => {
   const [visibleModal, setVisibleModal] = useState(false)
   const [fixExpense, setFixExpense] = useState(false)
   const [paymentType, setPaymentType] = useState('cash')
   const [priorityLevel, setPriorityLevel] = useState('highest')
+  const [parceledOut, setParceledOut] = useState(false)
+  const [date, setDate] = useState(new Date())
 
   const PlusIcon = (props) => (<Icon {...props} name='plus-outline'/>)
-
-  const onFixExpenseChange = (checked) => {
-    setFixExpense(checked)
-  }
-
-  const handlePaymentType = (type) => {
-    setPaymentType(type)
-  }
-
 
   return (
     <View style={styles.modal}>
@@ -30,17 +23,28 @@ const AddExpenseModal = () => {
           <Input placeholder="Nome" />
           <Input placeholder="Preço" />
           <Text>É um gasto fixo?</Text>
-          <Toggle checked={fixExpense} onChange={(isFixed) => onFixExpenseChange(isFixed)}>
-            {fixExpense === false ? <Text> Não</Text> : <Text> Sim</Text>}
+          <Toggle checked={fixExpense} onChange={(isFixed) => setFixExpense(isFixed)}>
+            {!fixExpense ? <Text>Não</Text> : <Text>Sim</Text>}
           </Toggle>
+          {fixExpense && <Calendar date={date} onSelect={nextDate => setDate(nextDate)} />}
+
           <Input placeholder="Categoria" />
 
-          <CheckBox checked={paymentType === 'credit'} onChange={() => handlePaymentType('credit')}>
+          <CheckBox checked={paymentType === 'credit'} onChange={() => setPaymentType('credit')}>
             Crédito
           </CheckBox>
-          <CheckBox checked={paymentType === 'cash'} onChange={() => handlePaymentType('cash')}>
+          
+          <CheckBox checked={paymentType === 'cash'} onChange={() => setPaymentType('cash')}>
             À vista
           </CheckBox>
+          {paymentType === 'credit' && (
+            <>
+              <Text>Parcelado?</Text>
+              <Toggle checked={parceledOut} onChange={(isParceledOut) => setParceledOut(isParceledOut)}>
+                {!parceledOut ? <Text>Não</Text> : <Text>Sim</Text>}
+              </Toggle>
+            </>
+          )}
 
           <Radio style={styles.radio} status='success' checked={priorityLevel === 'high'} onChange={() => setPriorityLevel('high')}>alta</Radio>
           <Radio style={styles.radio} status='warning' checked={priorityLevel === 'medium'} onChange={() => setPriorityLevel('medium')}>média</Radio>

@@ -6,11 +6,11 @@ import { useNavigation } from '@react-navigation/native'
 const RedirectCard = ({title, icon, screenName}) => {
   const navigation = useNavigation()
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(screenName)} style={styles.card}>
-      <View>
+    <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
+      <View style={styles.card}>
         {icon}
-        <Text>{title}</Text>
-        <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' />
+        <Text style={styles.title}>{title}</Text>
+        <Icon style={styles.icon} fill='#5719BE' name='arrow-ios-forward-outline' />
       </View>
     </TouchableOpacity>
   )
@@ -18,12 +18,27 @@ const RedirectCard = ({title, icon, screenName}) => {
 
 const styles = StyleSheet.create({
   card: {
-    marginTop: 30,
     borderWidth: 1,
-    borderColor: 'grey',
+    borderColor: 'white',
     borderRadius: 20,
+    backgroundColor: 'white',
+    width: 355,
+    height: 60,
+    alignSelf: 'center',
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    marginBottom: 15,
+  },
+  title: {
+    position: 'absolute',
+    marginLeft: 30,
+    alignSelf: 'center',
+    fontSize: 20,
   },
   icon: {
+    position: 'relative',
+    marginLeft: 280,
     width: 30,
     height: 30,
   },

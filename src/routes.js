@@ -19,7 +19,7 @@ const Route = () => (
           name="Main"
           component={Main} 
           options={{
-            headerTintColor: colors.primary
+            headerShown: false,
           }} 
         />
 
@@ -28,7 +28,8 @@ const Route = () => (
           component={Incomes}
           options={{
             title: 'Renda',
-            headerTintColor: colors.primary
+            headerTintColor: colors.primary,
+            headerTitleAlign: 'center',
           }} 
         />
 
@@ -37,7 +38,8 @@ const Route = () => (
           component={Expenses} 
           options={{
             title: 'Gastos',
-            headerTintColor: colors.primary
+            headerTintColor: colors.primary,
+            headerTitleAlign: 'center',
           }} 
         />
 
@@ -46,7 +48,8 @@ const Route = () => (
           component={Graphics} 
           options={{
             title: 'Gráficos',
-            headerTintColor: colors.primary
+            headerTintColor: colors.primary,
+            headerTitleAlign: 'center',
           }} 
         />
       </Stack.Navigator>
