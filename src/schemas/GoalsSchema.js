@@ -7,16 +7,8 @@ export default class GoalsSchema {
       id: {type: 'int',  indexed: true},
       description: {type: 'string', default: ''},
       category: {type: 'string', default: ''},
-      price: {type: 'bool', default: true},
-      // Accesses: {
-      //   lastAccess: {type: 'date'},
-      //   allAccesses: {type: 'date'},
-      // },
+      price: {type: 'int', default: 0},
       conquestDate: {type:'date'},
-      // Economy: {
-      //   income: {type:'list', objectType: 'Income'},
-      //   expense: {type:'list', objectType: 'Expense'},
-      // },
     },
   };
 }
