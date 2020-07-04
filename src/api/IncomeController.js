@@ -1,10 +1,16 @@
 /* eslint-disable prettier/prettier */
 import getRealm from '../database/realm';
 
-const getIncome = async () => {
+const getIncomes = async () => {
   const realm = await getRealm();
   const response = realm.objects('Income');
   return response;
+};
+
+const getIncome = async (id) =>{
+  const realm = await getRealm();
+  let Expense = realm.objects('Incomes').filtered(`id = ${id}`);
+  return Expense;
 };
 
 const createIncome = async (Income) => {
@@ -12,7 +18,7 @@ const createIncome = async (Income) => {
   realm.write(() =>{
     realm.create('Income', Income, true);
   });
-  const Income = await getIncome();
+  const Income = await getIncomes();
   return Income;
 };
 
@@ -33,4 +39,4 @@ const deleteIncome = async(id) => {
   return {success: true};
 };
 
-export {getIncome, createIncome, updateIncome, deleteIncome};
+export {getIncomes, createIncome, updateIncome, deleteIncome, getIncome};

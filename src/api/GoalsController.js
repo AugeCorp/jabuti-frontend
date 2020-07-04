@@ -24,6 +24,13 @@ const updateGoal = async (params) => {
   });
   return Goal;
 };
+
+const getGoal = async (id) =>{
+  const realm = await getRealm();
+  let Goal = realm.objects('Goals').filtered(`id = ${id}`);
+  return Goal;
+};
+
 const deleteGoal = async(id) => {
   const realm = await getRealm();
   let Goal = realm.objects('Goals').filtered(`id = ${id}`);
@@ -33,4 +40,4 @@ const deleteGoal = async(id) => {
   return {success: true};
 };
 
-export {getGoals, createGoals, updateGoal, deleteGoal};
+export {getGoals, createGoals, updateGoal, deleteGoal, getGoal};

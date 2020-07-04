@@ -1,10 +1,16 @@
 /* eslint-disable prettier/prettier */
 import getRealm from '../database/realm';
 
-const getExpense = async () => {
+const getExpenses = async () => {
   const realm = await getRealm();
   const response = realm.objects('Expense');
   return response;
+};
+
+const getExpense = async (id) =>{
+  const realm = await getRealm();
+  let Expense = realm.objects('Expense').filtered(`id = ${id}`);
+  return Expense;
 };
 
 const createExpense = async (Expense, PaymentType) => {
@@ -14,7 +20,7 @@ const createExpense = async (Expense, PaymentType) => {
     Expense.PaymentMethod = paymentMethod;
     realm.create('Expense', Expense, true);
   });
-  const Expense = await getExpense();
+  const Expense = await getExpenses();
   return Expense;
 };
 
@@ -28,6 +34,7 @@ const updateExpense = async (params, PaymentType) => {
   });
   return Expense;
 };
+
 const deleteExpense = async(id) => {
   const realm = await getRealm();
   let Expense = realm.objects('Expense').filtered(`id = ${id}`);
@@ -37,4 +44,4 @@ const deleteExpense = async(id) => {
   return {success: true};
 };
 
-export {getExpense, createExpense, updateExpense, deleteExpense};
+export {getExpenses, createExpense, updateExpense, deleteExpense, getExpense};
