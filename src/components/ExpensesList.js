@@ -1,12 +1,13 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Input, Text } from '@ui-kitten/components'
-import { expenses } from '../helper/DataTest'
+import AddExpenseModal from './AddExpensesModal'
 import ExpenseCard from './ExpenseCard'
 
-const ExpensesList = () => {
+const ExpensesList = ({ expenses,  }) => {
   const [rows, setRows] = useState([])
-  
+
+
   useEffect(() => {
     setRows(expenses)
   }, [])
@@ -16,9 +17,18 @@ const ExpensesList = () => {
     setRows(arr)
   }
 
+  const handleAddNew = (newExpense) => {
+    const arr = expenses
+    arr.push(newExpense)
+    setRows(arr)
+    handleTextInput('')
+  }
+  
+
   return (
     <View>
       <Input placeholder='Pesquisar por nome, data, valor...' onChangeText={value => handleTextInput(value)} />
+      <AddExpenseModal expenses={expenses} addNew={obj => handleAddNew(obj)} />
       <ScrollView> 
         {rows.map((row, idx) => (
           <Fragment key={row._id}>

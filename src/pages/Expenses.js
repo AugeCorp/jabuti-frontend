@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, ScrollView } from 'react-native'
 import ExpensesList from '../components/ExpensesList'
 import { margins } from '../helper/GlobalStyle'
-import AddExpenseModal from '../components/AddExpensesModal'
+import { expenses } from '../helper/DataTest'
 
 const Expenses = () => {
   return (
     <>
-      <AddExpenseModal />
       <ScrollView style={styles.view}>
-        <ExpensesList />
+        <ExpensesList expenses={expenses} />
       </ScrollView>
     </>
   );
