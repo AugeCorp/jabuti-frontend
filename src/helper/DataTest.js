@@ -106,3 +106,116 @@ export const expenses = [
     payDate: '11/04/2020',
   }
 ]
+
+export const user = {
+  _id: 1,
+  email: 'lucas.dev@gmail.com',
+  password: '123',
+  googleAccount: false,
+  name: 'Lucas Zacarias',
+  isActive: true,
+  accesses: {
+    lastAccess: new Date(),
+  },
+  token: 'abcdefghij123456',
+  createdAt: new Date(),
+  updatedAt: new Date(), 
+  economy: {
+    income: [
+      {
+        _id: 1,
+        value: 2500,
+        description: 'CLT',
+        type: 'fixed',
+        receiptDate: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        _id: 2,
+        value: 300,
+        description: 'Freela Design',
+        type: 'variable',
+        receiptDate: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        _id: 3,
+        value: 600,
+        description: 'Auxilio Emergencial',
+        type: 'variable',
+        receiptDate: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ],
+    expense: [
+      {
+        _id: 1,
+        paymentType: {
+          cash: false,
+          credit: true,
+          parceledOut: false,
+          installments: null,
+        },
+        priority: 'low',
+        description: 'Balinha 7Belo',
+        price: 10,
+        category: 'Alimentação',
+        payDate: new Date(),
+        validity: new Date(),
+        type: 'variable',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        _id: 2,
+        paymentType: {
+          cash: false,
+          credit: true,
+          parceledOut: false,
+          installments: 5,
+        },
+        priority: 'high',
+        description: 'Fogão Arno',
+        price: 2300,
+        category: 'Casa',
+        payDate: new Date(),
+        validity: new Date(),
+        type: 'variable',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        _id: 3,
+        paymentType: {
+          cash: true,
+          credit: false,
+          parceledOut: false,
+          installments: null,
+        },
+        priority: 'medium',
+        description: 'Uber',
+        price: 34,
+        category: 'Transporte',
+        payDate: new Date(),
+        validity: new Date(),
+        type: 'variable',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ],
+  },
+  goal: [
+    {
+      _id: 1,
+      description: 'Viajar para Paris até dezembro/2020',
+      price: 10000,
+      category: 'Lazer',
+      conquestDate: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }
+  ]
+}
