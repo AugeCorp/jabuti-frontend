@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Text, Icon } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
+import { text, colors } from '../helper/GlobalStyle'
 
 const RedirectCard = ({title, icon, screenName}) => {
   const navigation = useNavigation()
@@ -35,7 +36,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginLeft: 50,
     alignSelf: 'center',
-    fontSize: 20,
+    ...text.light20,
+    color: colors.grey,
   },
   iconCard: {
     width: 35,

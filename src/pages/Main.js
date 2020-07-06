@@ -70,12 +70,12 @@ const styles = StyleSheet.create({
   },  
   economy: {
     marginTop: 40,
-    fontSize: 35,
+    ...text.regular35,
     color: colors.primary,
   },
   cents: {
     marginTop: 55,
-    fontSize: 20,
+    ...text.regular20,
     color: colors.primary,
   },
 })

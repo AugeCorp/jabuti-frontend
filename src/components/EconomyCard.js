@@ -23,7 +23,7 @@ const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
       <Text category='h6' style={styles.graphicsLabel}>seus gastos: {expenses}</Text>
 
       <View style={styles.detailsCard}>
-        <Text style={styles.details} category='p2' onPress={() => console.log('aaaaa')}>
+        <Text style={styles.details} onPress={() => console.log('aaaaa')}>
           detalhes
         </Text>
         <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' />
@@ -34,17 +34,18 @@ const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 20,
+    ...text.regular20,
     marginTop: 8,
     color: colors.midGrey,
     textAlign: 'center',
+    marginBottom: 20,
   },
   expensesLabel: {
     ...text.medium12,
     color: colors.midGrey,
   },
   major: {
-    fontSize: 25,
+    ...text.light25,
     color: colors.error,
   },
   minor: {
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     paddingRight: 50,
   },
   graphicsLabel: {
-    fontSize: 18,
+    ...text.light18,
     color: colors.midGrey,
     marginLeft: 12,
     marginTop: 25,

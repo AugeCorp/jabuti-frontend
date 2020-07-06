@@ -117,7 +117,6 @@ const styles = StyleSheet.create({
   },
   button2: {
     marginTop: 20,
-    fontSize: 20,
   },
   buttonText: {
     ...text.regular18,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Text, Icon, Card } from '@ui-kitten/components'
-import { colors } from '../helper/GlobalStyle'
+import { colors, text } from '../helper/GlobalStyle'
 
 const UserData = (props) => {
   return (
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   name: {
     color: colors.primary,
-    fontSize: 20,
+    ...text.light20,
   },
   card: {
     flex: 1,
