@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     flex: 1,
     borderColor: 'white',
+    backgroundColor: colors.white,
     borderRadius: 15,
   },
   expensesCard: {

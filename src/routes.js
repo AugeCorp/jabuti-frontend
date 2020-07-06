@@ -7,6 +7,7 @@ import Main from './pages/Main'
 import Incomes from './pages/Incomes'
 import Expenses from './pages/Expenses'
 import Graphics from './pages/Graphics'
+import { colors } from './helper/GlobalStyle'
 
 const Stack = createStackNavigator()
 
@@ -18,7 +19,7 @@ const Route = () => (
           name="Main"
           component={Main} 
           options={{
-            headerTintColor: '#5719BE'
+            headerShown: false,
           }} 
         />
 
@@ -27,7 +28,8 @@ const Route = () => (
           component={Incomes}
           options={{
             title: 'Renda',
-            headerTintColor: '#5719BE'
+            headerTintColor: colors.primary,
+            headerTitleAlign: 'center',
           }} 
         />
 
@@ -36,7 +38,8 @@ const Route = () => (
           component={Expenses} 
           options={{
             title: 'Gastos',
-            headerTintColor: '#5719BE'
+            headerTintColor: colors.primary,
+            headerTitleAlign: 'center',
           }} 
         />
 
@@ -45,7 +48,8 @@ const Route = () => (
           component={Graphics} 
           options={{
             title: 'Gráficos',
-            headerTintColor: '#5719BE'
+            headerTintColor: colors.primary,
+            headerTitleAlign: 'center',
           }} 
         />
       </Stack.Navigator>

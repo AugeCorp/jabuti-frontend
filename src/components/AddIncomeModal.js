@@ -25,9 +25,12 @@ const AddIncomeModal = () => {
           <Toggle checked={fixExpense} onChange={(isFixed) => onFixExpenseChange(isFixed)}>
             {fixExpense === false ? <Text> Não</Text> : <Text> Sim</Text>}
           </Toggle>
-
-          <Text>Selecione o dia do recebimento:</Text>
-          <Calendar date={date} onSelect={nextDate => setDate(nextDate)} />
+          {fixExpense && (
+            <>
+              <Text>Qual o dia do recebimento?</Text>
+              <Calendar date={date} onSelect={nextDate => setDate(nextDate)} />
+            </>
+          )}
 
           <Button style={styles.button2} onPress={() => setVisibleModal(false)}>
             Registrar
@@ -43,9 +46,11 @@ const styles = StyleSheet.create({
     width: 380,
   },
   button: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 355,
+    height: 50,
+    borderRadius: 15,
+    marginTop: 30,
+    alignSelf: 'center',
   },
   button2: {
     marginTop: 30,

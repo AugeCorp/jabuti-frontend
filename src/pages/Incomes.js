@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, ScrollView } from 'react-native'
+import { StyleSheet, ScrollView, Text } from 'react-native'
 import AddIncomeModal from '../components/AddIncomeModal'
 import IncomeList from '../components/IncomeList'
 import { colors, margins } from '../helper/GlobalStyle'
@@ -8,7 +8,8 @@ const Incomes = () => {
   return (
     <ScrollView style={styles.view}>
       <IncomeList />
-      <AddIncomeModal />
+      <Text style={styles.totalIncome}>Renda total: R$ 2.400,00</Text>
+      {/* <AddIncomeModal /> */}
     </ScrollView>
   );
 }
