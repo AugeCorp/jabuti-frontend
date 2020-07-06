@@ -4,12 +4,13 @@ import { Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
 import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
-import { colors, margins } from '../helper/GlobalStyle'
+import { colors, margins, text } from '../helper/GlobalStyle'
 
 const Main = () => {
   return (
     <ScrollView style={styles.view}>
       <UserData name="Lucas Zacarias" />
+
       <View style={styles.card}> 
         <View style={styles.economyStatus}>
           <Text style={styles.smile}>:)</Text>
@@ -20,6 +21,7 @@ const Main = () => {
         <Text style={styles.economy}>9.990.900,</Text>
         <Text style={styles.cents}>00</Text>
       </View>
+
       <EconomyCard majorExpense="1255,60" minorExpense="15,10" expenses="100" income="10000" />
       <RedirectCard screenName="Expenses" title="Gastos" icon={( <Image style={styles.icon} source={require('../static/images/icons/icon-expense.png')} /> )} />
       <RedirectCard screenName="Incomes" title="Renda" icon={( <Image style={styles.icon} source={require('../static/images/icons/icon-income.png')} /> )} />
@@ -33,7 +35,23 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     flexDirection: 'row',
-    alignSelf: 'center',
+    paddingLeft: 10,
+  },
+  economyInfo: {
+    marginLeft: 5,
+    ...text.light20,
+    alignSelf: 'flex-start',
+  },
+  economyInfo2: {
+    ...text.light20,
+    marginTop: 20,
+    marginLeft: -80,
+  },
+  moneySign: {
+    ...text.regular20,
+    color: colors.primary,
+    marginTop: 55,
+    marginLeft: -155,
   },
   smile: {
     alignItems: 'center',
@@ -51,14 +69,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
   },  
   economy: {
-    marginLeft: 0,
     marginTop: 40,
     fontSize: 35,
     color: colors.primary,
   },
   cents: {
     marginTop: 55,
-    marginRight: 2,
     fontSize: 20,
     color: colors.primary,
   },
