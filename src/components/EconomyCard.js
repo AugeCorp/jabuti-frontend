@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     color: colors.midGrey,
   },
   major: {
-    fontSize: 25,
+    ...text.light25,
     color: colors.error,
   },
   minor: {

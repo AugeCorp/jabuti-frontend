@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignSelf: 'center',
-    marginTop: 10,
   },
   smile: {
     alignItems: 'center',
