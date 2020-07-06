@@ -1,14 +1,14 @@
 import React from 'react'
-import { StyleSheet, ScrollView, View } from 'react-native'
-import { Icon, Text } from '@ui-kitten/components'
+import { StyleSheet, ScrollView, View, Image } from 'react-native'
+import { Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
 import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
-import { colors, text } from '../helper/GlobalStyle'
+import { colors, margins } from '../helper/GlobalStyle'
 
 const Main = () => {
   return (
-    <ScrollView>
+    <ScrollView style={styles.view}>
       <UserData name="Lucas Zacarias" />
       <View style={styles.card}> 
         <View style={styles.economyStatus}>
@@ -21,19 +21,19 @@ const Main = () => {
         <Text style={styles.cents}>00</Text>
       </View>
       <EconomyCard majorExpense="1255,60" minorExpense="15,10" expenses="100" income="10000" />
-      <RedirectCard screenName="Expenses" title="Gastos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
-      <RedirectCard screenName="Incomes" title="Renda" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
-      <RedirectCard screenName="Graphics" title="Gráficos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
+      <RedirectCard screenName="Expenses" title="Gastos" icon={( <Image style={styles.icon} source={require('../static/images/icons/icon-expense.png')} /> )} />
+      <RedirectCard screenName="Incomes" title="Renda" icon={( <Image style={styles.icon} source={require('../static/images/icons/icon-income.png')} /> )} />
+      <RedirectCard screenName="Graphics" title="Gráficos" icon={( <Image style={styles.icon} source={require('../static/images/icons/icon-graphics.png')} /> )} />
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
+  view: margins.global,
   card: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 10,
-    marginLeft: 12,
+    alignSelf: 'center',
   },
   smile: {
     alignItems: 'center',
@@ -49,24 +49,7 @@ const styles = StyleSheet.create({
     height: 90,
     borderRadius: 20,
     backgroundColor: colors.primary,
-  },
-  economyInfo: {
-    marginLeft: 10,
-    marginTop: 2,
-    fontSize: 20,
-  },
-  economyInfo2: {
-    marginLeft: -80,
-    marginTop: 22,
-    fontSize: 20,
-  },
-  moneySign: {
-    marginLeft: -160,
-    marginTop: 55,
-    marginRight: 2,
-    fontSize: 20,
-    color: colors.primary,
-  },
+  },  
   economy: {
     marginLeft: 0,
     marginTop: 40,
@@ -78,10 +61,6 @@ const styles = StyleSheet.create({
     marginRight: 2,
     fontSize: 20,
     color: colors.primary,
-  },
-  icon: {
-    width: 30,
-    height: 30,
   },
 })
 

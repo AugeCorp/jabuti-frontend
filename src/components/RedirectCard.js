@@ -8,7 +8,9 @@ const RedirectCard = ({title, icon, screenName}) => {
   return (
     <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
       <View style={styles.card}>
-        {icon}
+        <View style={styles.iconCard}>
+          {icon}
+        </View>
         <Text style={styles.title}>{title}</Text>
         <Icon style={styles.icon} fill='#5719BE' name='arrow-ios-forward-outline' />
       </View>
@@ -22,23 +24,28 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderRadius: 20,
     backgroundColor: 'white',
-    width: 355,
     height: 60,
-    alignSelf: 'center',
     alignItems: 'center',
     flex: 1,
     flexDirection: 'row',
     marginBottom: 15,
+    paddingLeft: 10,
   },
   title: {
     position: 'absolute',
-    marginLeft: 30,
+    marginLeft: 50,
     alignSelf: 'center',
     fontSize: 20,
   },
+  iconCard: {
+    width: 35,
+    height: 35,
+    alignItems: 'center',
+  },
   icon: {
+    flex: 1,
     position: 'relative',
-    marginLeft: 280,
+    marginLeft: 290,
     width: 30,
     height: 30,
   },

@@ -3,6 +3,7 @@ export const colors = {
   secondary: '#175FC2',
   success: '#009947',
   error: '#B73838',
+  warning: '#FFA404',
   grey: '#6B6B6B',
   midGrey: '#9F9F9F',
   white: '#FFFFFF'
@@ -38,5 +39,15 @@ export const text = {
   },
   regular18: {
     fontSize: 18,
+  }
+}
+
+export const margins = {
+  global: {
+    padding: 10,
+  },
+  content: {
+    paddingLeft: 15,
+    paddingRight: 15,
   }
 }
