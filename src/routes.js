@@ -51,6 +51,6 @@ const Route = () => (
       </Stack.Navigator>
     </NavigationContainer>
   </>
-);
+)
 
 export default Route

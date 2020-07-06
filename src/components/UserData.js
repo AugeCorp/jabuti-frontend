@@ -18,8 +18,21 @@ const UserData = (props) => {
 }
 
 const styles = StyleSheet.create({
+<<<<<<< Updated upstream
   name: {
     color: '#5719BE',
+=======
+  title: {
+    position: 'absolute',
+    marginLeft: 260,
+    marginTop: 15,
+  },
+  name: {
+    color: colors.primary,
+    marginTop: 20,
+    marginLeft: 145,
+    fontSize: 20,
+>>>>>>> Stashed changes
   },
   card: {
     marginTop: 30,

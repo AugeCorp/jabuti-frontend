@@ -1,38 +1,67 @@
 import React from 'react'
-import { StyleSheet, ScrollView, View } from 'react-native'
-import { Icon, Text } from '@ui-kitten/components'
+import { StyleSheet, ScrollView, View, Image } from 'react-native'
+import { Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
 import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
+import { colors, margins } from '../helper/GlobalStyle'
 
 const Main = () => {
   return (
-    <ScrollView>
+    <ScrollView style={styles.view}>
       <UserData name="Lucas Zacarias" />
-      <View style={styles.economyBlock} />
-      <Text category="h6">este mês você economizou</Text>
-      <Text category="h2" style={styles.economy}>R$ 9.990.900,00</Text>
-      <EconomyCard majorExpense="1255,60" minorExpense="15,10" spend="100" income="10000" />
-      <RedirectCard screenName="Expenses" title="Gastos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
-      <RedirectCard screenName="Incomes" title="Renda" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
-      <RedirectCard screenName="Graphics" title="Gráficos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
+      <View style={styles.card}> 
+        <View style={styles.economyStatus}>
+          <Text style={styles.smile}>:)</Text>
+        </View>
+        <Text style={styles.economyInfo}>este mês</Text> 
+        <Text style={styles.economyInfo2}>você economizou</Text>
+        <Text style={styles.moneySign}>R$</Text>
+        <Text style={styles.economy}>9.990.900,</Text>
+        <Text style={styles.cents}>00</Text>
+      </View>
+      <EconomyCard majorExpense="1255,60" minorExpense="15,10" expenses="100" income="10000" />
+      <RedirectCard screenName="Expenses" title="Gastos" icon={( <Image style={styles.icon} source={require('../static/images/icons/icon-expense.png')} /> )} />
+      <RedirectCard screenName="Incomes" title="Renda" icon={( <Image style={styles.icon} source={require('../static/images/icons/icon-income.png')} /> )} />
+      <RedirectCard screenName="Graphics" title="Gráficos" icon={( <Image style={styles.icon} source={require('../static/images/icons/icon-graphics.png')} /> )} />
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  economyBlock: {
-    width: 80,
-    height: 80,
+  view: margins.global,
+  card: {
+    flex: 1,
+    flexDirection: 'row',
+    alignSelf: 'center',
+    marginTop: 10,
+  },
+  smile: {
+    alignItems: 'center',
+    letterSpacing: 5,
+    marginTop: 35,
+    marginLeft: 10,
+    transform: [{ rotate: '90deg'}],
+    fontSize: 50,
+    color: colors.white,
+  },
+  economyStatus: {
+    width: 90,
+    height: 90,
     borderRadius: 20,
-    backgroundColor: '#5719BE',
+    backgroundColor: colors.primary,
   },  
   economy: {
-    color: '#5719BE',
+    marginLeft: 0,
+    marginTop: 40,
+    fontSize: 35,
+    color: colors.primary,
   },
-  icon: {
-    width: 30,
-    height: 30,
+  cents: {
+    marginTop: 55,
+    marginRight: 2,
+    fontSize: 20,
+    color: colors.primary,
   },
 })
 
