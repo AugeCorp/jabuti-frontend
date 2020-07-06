@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, ScrollView, View } from 'react-native'
 import { Icon, Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
 import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
 import { colors, text } from '../helper/GlobalStyle'
+import Expense from '../services/controller/Expense'
+const expense = new Expense();
+// import Goals from '../services/controller/Goals'
+// const goals = new Goals();
+// import Income from '../services/controller/Income'
+// const income = new Income();
+// import Graphics from '../services/controller/Graphics'
+// const graphics = new Graphics();
 
 const Main = () => {
+  const [expenses, setExpenses] = useState({
+    majorExpense: 0, 
+    minorExpense: 0,
+    expenses: 0
+  })
+
+  const handleSetExpense = async () => {
+    const all = await expense.remove();
+    console.log(all)
+  }
+
+  useEffect(() => {
+    handleSetExpense();
+  }, [expenses])
+
   return (
     <ScrollView>
       <UserData name="Lucas Zacarias" />
@@ -20,10 +43,44 @@ const Main = () => {
         <Text style={styles.economy}>9.990.900,</Text>
         <Text style={styles.cents}>00</Text>
       </View>
-      <EconomyCard majorExpense="1255,60" minorExpense="15,10" expenses="100" income="10000" />
-      <RedirectCard screenName="Expenses" title="Gastos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
-      <RedirectCard screenName="Incomes" title="Renda" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
-      <RedirectCard screenName="Graphics" title="Gráficos" icon={( <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' /> )} />
+      <EconomyCard 
+        majorExpense={expenses.majorExpense} 
+        minorExpense={expenses.minorExpense} 
+        expenses="100" 
+        income="10000" 
+      />
+      <RedirectCard 
+        screenName="Expenses" 
+        title="Gastos" 
+        icon={( 
+          <Icon style={styles.icon} 
+            fill='black' 
+            name='arrow-ios-forward-outline' 
+          /> 
+        )} 
+      />
+      <RedirectCard 
+        screenName="Incomes" 
+        title="Renda" 
+        icon={( 
+          <Icon 
+            style={styles.icon} 
+            fill='black' 
+            name='arrow-ios-forward-outline' 
+          /> 
+        )} 
+      />
+      <RedirectCard 
+        screenName="Graphics" 
+        title="Gráficos" 
+        icon={( 
+          <Icon 
+            style={styles.icon} 
+            fill='black' 
+            name='arrow-ios-forward-outline' 
+          /> 
+        )} 
+      />
     </ScrollView>
   )
 }
