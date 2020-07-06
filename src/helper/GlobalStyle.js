@@ -37,8 +37,8 @@ export const text = {
   regular18: {
     fontSize: 18,
   },
-  regular18: {
-    fontSize: 18,
+  regular20: {
+    fontSize: 20,
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Text, Icon } from '@ui-kitten/components'
-import { colors, text } from '../helper/GlobalStyle'
+import { colors, text, margins } from '../helper/GlobalStyle'
 
 const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
   return (
@@ -22,10 +22,12 @@ const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
       <Text category='h6' style={styles.graphicsLabel}>seus ganhos: {income}</Text>
       <Text category='h6' style={styles.graphicsLabel}>seus gastos: {expenses}</Text>
 
-      <Text category='p2' onPress={() => console.log('aaaaa')}>
-        detalhes
-      </Text>
-      <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' />
+      <View style={styles.detailsCard}>
+        <Text style={styles.details} category='p2' onPress={() => console.log('aaaaa')}>
+          detalhes
+        </Text>
+        <Icon style={styles.icon} fill='black' name='arrow-ios-forward-outline' />
+      </View>
     </View>
   )
 }
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
     color: colors.midGrey,
   },
   major: {
-    ...text.light25,
+    fontSize: 25,
     color: colors.error,
   },
   minor: {
@@ -72,11 +74,19 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginTop: 25,
   },
+  detailsCard: {
+    flex: 1,
+    flexDirection: 'row',
+    alignSelf: 'flex-end',
+    ...margins.content,
+    paddingBottom: 10,
+  },
   details: {
-    fontSize: 12,
-    marginLeft: 290,
+    ...text.medium12,
+    color: colors.midGrey,
   },
   icon: {
+    marginTop: 3,
     width: 12,
     height: 12,
   },
