@@ -9,28 +9,28 @@ const ExpenseCard = ({row}) => {
 
   const renderIcon = (expenseCategory) => {
     if (expenseCategory === 'Lazer') {
-      return <Image style={styles.icon} source={require('../static/images/icons/icon-recreation-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-recreation-outline.png')} />
     }
     if (expenseCategory === 'Casa') {
-      return <Image style={styles.icon} source={require('../static/images/icons/icon-home-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-home-outline.png')} />
     }
     if (expenseCategory === 'Estudo') {
-      return <Image style={styles.icon} source={require('../static/images/icons/icon-book-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-book-outline.png')} />
     }
     if (expenseCategory === 'Alimentação') {
-      return <Image style={styles.icon} source={require('../static/images/icons/icon-burger-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-burger-outline.png')} />
     }
     if (expenseCategory === 'Saúde') {
-      return <Image style={styles.icon} source={require('../static/images/icons/icon-heart-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-heart-outline.png')} />
     }
     if (expenseCategory === 'Vestimenta') {
-      return <Image style={styles.icon} source={require('../static/images/icons/icon-shirt-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-shirt-outline.png')} />
     }
     if (expenseCategory === 'Transporte') {
-      return <Image style={styles.icon} source={require('../static/images/icons/icon-car-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-car-outline.png')} />
     }
 
-    return <Image style={styles.icon} source={require('../static/images/icons/icon-recreation-outline.png')} />
+    return <Image style={styles.icon} source={require('../../assets/images/icons/icon-recreation-outline.png')} />
   }
   
   return (

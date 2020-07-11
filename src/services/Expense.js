@@ -1,4 +1,4 @@
-import secrets from '../../config/secrets.json';
+import secrets from '../config/secrets.json';
 const url = secrets.backend.dev;
 const token = secrets.token;
 
@@ -35,7 +35,7 @@ export const show = async (props) => {
     url: `${url}/expenses/${props._id}`,
     headers: {
       authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjI5MGUxYTJiMzE3NjFlODVmMjNmZiIsImlhdCI6MTU5NDAwNzIwOCwiZXhwIjoxNTk0MDkzNjA4fQ.Dj5uMsnY3gb2_w12tUVhhQOmIFDVn-qfmxMB3W2dGw0",
+      `Bearer ${token}`,
     },
   });
 

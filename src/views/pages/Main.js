@@ -4,7 +4,7 @@ import { Icon, Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
 import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
-import { colors, text } from '../../helper/GlobalStyle'
+import { colors, text, margins } from '../../helper/GlobalStyle'
 
 const Main = () => {
   const [expenses, setExpenses] = useState({
@@ -12,19 +12,6 @@ const Main = () => {
     minorExpense: 0,
     allExpenses: 0,
   });
-
-  const handleSetExpense = async () => {
-    try {
-      const all = await expense.index({ expense_id: '5f0a2eca18e1c3318da8e53b' });
-      console.log(all);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    handleSetExpense();
-  }, [expenses]);
 
   return (
     <ScrollView style={styles.view}>

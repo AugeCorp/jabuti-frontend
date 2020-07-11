@@ -3,10 +3,10 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import Main from './pages/Main'
-import Incomes from './pages/Incomes'
-import Expenses from './pages/Expenses'
-import Graphics from './pages/Graphics'
+import Main from './views/pages/Main'
+import Incomes from './views/pages/Incomes'
+import Expenses from './views/pages/Expenses'
+import Graphics from './views/pages/Graphics'
 import { colors } from './helper/GlobalStyle'
 
 const Stack = createStackNavigator()
