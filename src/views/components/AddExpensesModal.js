@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Button, Icon, Text, Modal, Card, Input, Toggle, CheckBox, Radio, Calendar } from '@ui-kitten/components'
-import { colors, text } from '../helper/GlobalStyle'
+import { Button, Icon, Text, Modal, Input, Toggle, CheckBox, Radio, Calendar } from '@ui-kitten/components'
+import { colors, text } from '../../helper/GlobalStyle'
 
 const AddExpenseModal = () => {
   const [visibleModal, setVisibleModal] = useState(false)

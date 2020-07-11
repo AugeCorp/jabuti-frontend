@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Text, Icon } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
-import { text, colors } from '../helper/GlobalStyle'
+import { text, colors } from '../../helper/GlobalStyle'
 
 const RedirectCard = ({title, icon, screenName}) => {
   const navigation = useNavigation()

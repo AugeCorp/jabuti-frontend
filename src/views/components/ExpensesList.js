@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Input, Text } from '@ui-kitten/components'
-import { expenses } from '../helper/DataTest'
+import { expenses } from '../../helper/DataTest'
 import ExpenseCard from './ExpenseCard'
 
 const ExpensesList = () => {

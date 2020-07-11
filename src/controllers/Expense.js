@@ -1,4 +1,4 @@
-import { create, show, index, update, remove } from "../req/Expense";
+import { create, show, index, update, remove } from "../services/Expense";
 
 export default class Expense {
   create = async () => {

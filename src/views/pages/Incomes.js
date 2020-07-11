@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, ScrollView, Text } from 'react-native'
 import AddIncomeModal from '../components/AddIncomeModal'
 import IncomeList from '../components/IncomeList'
-import { colors, margins } from '../helper/GlobalStyle'
+import { colors, margins } from '../../helper/GlobalStyle'
 
 const Incomes = () => {
   return (

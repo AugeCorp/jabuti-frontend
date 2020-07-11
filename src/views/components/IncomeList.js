@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Text } from '@ui-kitten/components'
-import { colors } from '../helper/GlobalStyle'
+import { colors } from '../../helper/GlobalStyle'
 
 const IncomeList = () => {
   const [rows, setRows] = useState([])

@@ -4,8 +4,8 @@ import { Icon, Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
 import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
-import { colors, text } from '../helper/GlobalStyle'
-import Expense from '../services/controller/Expense'
+import { colors, text } from '../../helper/GlobalStyle'
+import Expense from '../../controllers/Expense'
 const expense = new Expense();
 // import Goals from '../services/controller/Goals'
 // const goals = new Goals();

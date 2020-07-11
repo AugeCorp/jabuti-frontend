@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { Text } from '@ui-kitten/components'
-import { colors, text, margins } from '../helper/GlobalStyle'
-import { priorityLevelStyle } from '../helper/ExpensesHelper'
+import { colors, text, margins } from '../../helper/GlobalStyle'
+import { priorityLevelStyle } from '../../helper/ExpensesHelper'
 
 const ExpenseCard = ({row}) => {
   const [showingDetails, setShowingDetails] = useState(false)

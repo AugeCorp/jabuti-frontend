@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, ScrollView } from 'react-native'
 import ExpensesList from '../components/ExpensesList'
-import { margins } from '../helper/GlobalStyle'
 import AddExpenseModal from '../components/AddExpensesModal'
+import { margins } from '../../helper/GlobalStyle'
 
 const Expenses = () => {
   return (
