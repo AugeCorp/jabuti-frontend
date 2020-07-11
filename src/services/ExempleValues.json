@@ -1,0 +1,74 @@
+{
+  "OBS": "Os ids apresentados devem ser alterados para um valor existente em sua base de dados",
+  "Expense": {
+    "Expense create": {
+      "_id": "5ee038792cbd704d399ecf0c",
+      "paymentType": {
+        "credit": true,
+        "parceledOut": true,
+        "installments": 3
+      },
+      "priority": "medium",
+      "description": "Teclado Mecânico",
+      "price": 275,
+      "category": "work",
+      "validity": new Date("2020/09/20"),
+      "type": "lazer",
+      "payDate": new Date()
+    },
+    "Expense Show": {
+      "_id": "5ee038792cbd704d399ecf0c"
+    },
+    "Expense Index": {
+      "expense_id": "5f02aa445608597932f9c09b"
+    },
+    "Expense Update": {
+      "expenseObject": {
+        "_id": "5f02b0368b1fbc06178c9589",
+        "category": "work",
+        "description": "Teclado Mecânico",
+        "payDate": "2020-07-06T05:01:42.064Z",
+        "paymentType": {
+          "credit": true,
+          "installments": 2,
+          "parceledOut": true
+        },
+        "price": 275,
+        "priority": "medium",
+        "type": "lazer",
+        "validity": "2020-09-20T03:00:00.000Z"
+      }
+    },
+    "Expense delete": {
+      "expense_id": "5f02aa445608597932f9c09b"
+    }
+  },
+  "Goals": {
+    "Goals Create": {
+      "_id": "your _id",
+      "price": 200,
+      "description": "Teclado Mecânico",
+      "category": "lazer",
+      "conquestDate": new Date()
+    },
+    "Goals Show": {
+      "_id": "your _id"
+    },
+    "Goals index": {
+      "goals_id": "your goals_id"
+    },
+    "Goals Update": {
+      "goalObject": {
+        "_id": "5f02aa445608597932f9c09b",
+        "category": "lazer",
+        "conquestDate": "2020-07-06T04:36:19.866Z",
+        "createdAt": "2020-07-06T04:36:20.068Z",
+        "description": "Teclado Mecânico",
+        "price": 275
+      }
+    },
+    "Goals Delete": {
+      "goals_id": "your goals_id"
+    }
+  }
+}

@@ -7,11 +7,23 @@ export const create = async () => {
     headers: {},
     data: {
       email: "teste@teste.com",
-      password: "123456789",
-      name: "Fulano de Teste",
-      income: 200000,
+      password: "123456789"
     },
   });
 
-  return 'fodasse';
+  return response;
+};
+
+export const login = async () => {
+  const response = await axios({
+    method: "POST",
+    url: "http://192.168.100.144:8040/login",
+    headers: {},
+    data: {
+      email: "teste@teste.com",
+      password: "123456789"
+    },
+  });
+
+  return response;
 };
