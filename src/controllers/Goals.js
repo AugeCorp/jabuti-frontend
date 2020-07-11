@@ -9,7 +9,7 @@ export default class Goals {
     } catch (err) {
       return err;
     }
-  };
+  }
 
   show = async () => {
     try {
@@ -19,7 +19,7 @@ export default class Goals {
     } catch (err) {
       return err;
     }
-  };
+  }
 
   index = async () => {
     try {
@@ -29,7 +29,7 @@ export default class Goals {
     } catch (err) {
       return err;
     }
-  };
+  }
 
   update = async () => {
     try {
@@ -39,8 +39,8 @@ export default class Goals {
     } catch (err) {
       return err;
     }
-  };
-
+  }
+  
   remove = async () => {
     try {
       const response = await remove();
@@ -49,5 +49,5 @@ export default class Goals {
     } catch (err) {
       return err;
     }
-  };
+  }
 }

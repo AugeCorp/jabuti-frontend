@@ -18,7 +18,7 @@ const Main = () => {
   const [expenses, setExpenses] = useState({
     majorExpense: 0, 
     minorExpense: 0,
-    expenses: 0
+    allExpenses: 0,
   })
 
   const handleSetExpense = async () => {
@@ -48,7 +48,7 @@ const Main = () => {
       <EconomyCard 
         majorExpense={expenses.majorExpense} 
         minorExpense={expenses.minorExpense} 
-        expenses="100" 
+        expenses={expenses.AllExpenses}
         income="10000" 
       />
       <RedirectCard 
