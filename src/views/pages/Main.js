@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, ScrollView, View } from "react-native";
-import { Icon, Text } from "@ui-kitten/components";
-import UserData from "../components/UserData";
-import EconomyCard from "../components/EconomyCard";
-import RedirectCard from "../components/RedirectCard";
-import { colors, text } from "../helper/GlobalStyle";
-import Expense from "../services/controller/Expense";
-const expense = new Expense();
-// import Goals from '../services/controller/Goals'
-// const goals = new Goals();
-// import Income from '../services/controller/Income'
-// const income = new Income();
+import React, { useState, useEffect } from 'react'
+import { StyleSheet, ScrollView, View } from 'react-native'
+import { Icon, Text } from '@ui-kitten/components'
+import UserData from '../components/UserData'
+import EconomyCard from '../components/EconomyCard'
+import RedirectCard from '../components/RedirectCard'
+import { colors, text } from '../../helper/GlobalStyle'
 
 const Main = () => {
   const [expenses, setExpenses] = useState({
     majorExpense: 0,
     minorExpense: 0,
-    expenses: 0,
+    allExpenses: 0,
   });
 
   const handleSetExpense = async () => {
@@ -33,8 +27,9 @@ const Main = () => {
   }, [expenses]);
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.view}>
       <UserData name="Lucas Zacarias" />
+
       <View style={styles.card}>
         <View style={styles.economyStatus}>
           <Text style={styles.smile}>:)</Text>
@@ -45,10 +40,11 @@ const Main = () => {
         <Text style={styles.economy}>9.990.900,</Text>
         <Text style={styles.cents}>00</Text>
       </View>
-      <EconomyCard
-        majorExpense={expenses.majorExpense}
-        minorExpense={expenses.minorExpense}
-        expenses="100"
+
+      <EconomyCard 
+        majorExpense={expenses.majorExpense} 
+        minorExpense={expenses.minorExpense} 
+        expenses={expenses.AllExpenses}
         income="10000"
       />
       <RedirectCard
@@ -89,11 +85,27 @@ const Main = () => {
 };
 
 const styles = StyleSheet.create({
+  view: margins.global,
   card: {
     flex: 1,
-    flexDirection: "row",
-    marginTop: 10,
-    marginLeft: 12,
+    flexDirection: 'row',
+    paddingLeft: 10,
+  },
+  economyInfo: {
+    marginLeft: 5,
+    ...text.light20,
+    alignSelf: 'flex-start',
+  },
+  economyInfo2: {
+    ...text.light20,
+    marginTop: 20,
+    marginLeft: -80,
+  },
+  moneySign: {
+    ...text.regular20,
+    color: colors.primary,
+    marginTop: 55,
+    marginLeft: -155,
   },
   smile: {
     alignItems: "center",
@@ -109,39 +121,16 @@ const styles = StyleSheet.create({
     height: 90,
     borderRadius: 20,
     backgroundColor: colors.primary,
-  },
-  economyInfo: {
-    marginLeft: 10,
-    marginTop: 2,
-    fontSize: 20,
-  },
-  economyInfo2: {
-    marginLeft: -80,
-    marginTop: 22,
-    fontSize: 20,
-  },
-  moneySign: {
-    marginLeft: -160,
-    marginTop: 55,
-    marginRight: 2,
-    fontSize: 20,
-    color: colors.primary,
-  },
+  },  
   economy: {
-    marginLeft: 0,
     marginTop: 40,
-    fontSize: 35,
+    ...text.regular35,
     color: colors.primary,
   },
   cents: {
     marginTop: 55,
-    marginRight: 2,
-    fontSize: 20,
+    ...text.regular20,
     color: colors.primary,
-  },
-  icon: {
-    width: 30,
-    height: 30,
   },
 });
 

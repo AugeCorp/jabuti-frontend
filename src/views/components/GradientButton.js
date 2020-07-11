@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Button, Text, Animated, Easing } from 'react-native'
+import { StyleSheet, Button, Text } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
 const GradientButton = () => {

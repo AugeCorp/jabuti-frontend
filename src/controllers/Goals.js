@@ -1,4 +1,4 @@
-import { create, show, index, update, remove } from "../req/Goals";
+import { create, show, index, update, remove } from "../services/Goals";
 
 export default class Goals {
   create = async (props) => {
