@@ -31,8 +31,8 @@ const AddExpenseModal = ({ requisitions }) => {
         _id: "5ee038792cbd704d399ecf0c",
         category,
         description: title,
-        payDate: fixExpense ? new Date(date) : new Date(),
-        validity: fixExpense? new Date(date): new Date(),
+        payDate: date,
+        validity: date,
         paymentType: {
           cash: paymentType === "cash" ? true : false,
           credit: paymentType === "credit" ? true : false,
@@ -43,13 +43,25 @@ const AddExpenseModal = ({ requisitions }) => {
         priority: priorityLevel,
         type: fixExpense ? "fixed" : "variable",
       };
-      setVisibleModal(false);
 
       await requisitions.create(params);
+
+      setVisibleModal(false);
+      handleClearSites();
     } catch (err) {
       console.log(err);
     }
   };
+
+  const handleClearSites = () => {
+    setTitle('')
+    setFixExpense(false)
+    setDate(new Date())
+    setPaymentType('cash')
+    setPrice('')
+    setPriorityLevel('highest')
+    setParceledOut(false)
+  }
 
   const PlusIcon = (props) => <Icon {...props} name="plus-outline" />;
 
