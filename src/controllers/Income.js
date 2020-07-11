@@ -1,4 +1,4 @@
-import { create, show, index, update, remove } from '../req/Income'
+import { create, show, index, update, remove } from '../services/Income'
 
 export default class {
     async create() {
