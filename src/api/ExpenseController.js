@@ -44,4 +44,23 @@ const deleteExpense = async(id) => {
   return {success: true};
 };
 
-export {getExpenses, createExpense, updateExpense, deleteExpense, getExpense};
+const getHigherAndLessExpense = async(year, month) => {
+  const realm = await getRealm();
+  let query;
+  if (year && month){
+    const dateSearch = new Date(year, month);
+    const firstDay = new Date(dateSearch.getFullYear(), dateSearch.getMonth(), 1);
+    const lastDay = new Date(dateSearch.getFullYear(), dateSearch.getMonth() + 1, 0);
+    query = `payDate >= ${firstDay.toISOString()} AND paydate <= ${lastDay.toISOString()}`;
+  } else {
+    return {error: {message: 'Error in function parameters.'}};
+  }
+  const Expense = {
+    highestExpense: realm.objects('Expense').filtered(query).max('price'),
+    lessExpense: realm.objects('Expense').filtered(query).min('price'),
+  };
+
+  return Expense;
+};
+
+export {getExpenses, createExpense, updateExpense, deleteExpense, getExpense, getHigherAndLessExpense};

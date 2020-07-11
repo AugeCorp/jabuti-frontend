@@ -11,6 +11,7 @@ export default class ExpenseSchema {
       validity: {type: 'date'},
       payDate: {type: 'date'},
       paymentType: {type:'PaymentType'},
+      price: {type: 'int', default: 0},
     },
   };
 }
