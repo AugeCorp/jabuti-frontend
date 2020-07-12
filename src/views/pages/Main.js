@@ -4,41 +4,24 @@ import { Icon, Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
 import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
-import { colors, text } from '../../helper/GlobalStyle'
-import Expense from '../../controllers/Expense'
-const expense = new Expense();
-// import Goals from '../services/controller/Goals'
-// const goals = new Goals();
-// import Income from '../services/controller/Income'
-// const income = new Income();
-// import Graphics from '../services/controller/Graphics'
-// const graphics = new Graphics();
+import { colors, text, margins } from '../../helper/GlobalStyle'
 
 const Main = () => {
   const [expenses, setExpenses] = useState({
-    majorExpense: 0, 
+    majorExpense: 0,
     minorExpense: 0,
     allExpenses: 0,
-  })
-
-  const handleSetExpense = async () => {
-    const all = await expense.remove();
-    console.log(all)
-  }
-
-  useEffect(() => {
-    handleSetExpense();
-  }, [expenses])
+  });
 
   return (
     <ScrollView style={styles.view}>
       <UserData name="Lucas Zacarias" />
 
-      <View style={styles.card}> 
+      <View style={styles.card}>
         <View style={styles.economyStatus}>
           <Text style={styles.smile}>:)</Text>
         </View>
-        <Text style={styles.economyInfo}>este mês</Text> 
+        <Text style={styles.economyInfo}>este mês</Text>
         <Text style={styles.economyInfo2}>você economizou</Text>
         <Text style={styles.moneySign}>R$</Text>
         <Text style={styles.economy}>9.990.900,</Text>
@@ -49,43 +32,44 @@ const Main = () => {
         majorExpense={expenses.majorExpense} 
         minorExpense={expenses.minorExpense} 
         expenses={expenses.AllExpenses}
-        income="10000" 
+        income="10000"
       />
-      <RedirectCard 
-        screenName="Expenses" 
-        title="Gastos" 
-        icon={( 
-          <Icon style={styles.icon} 
-            fill='black' 
-            name='arrow-ios-forward-outline' 
-          /> 
-        )} 
+      <RedirectCard
+        screenName="Expenses"
+        title="Gastos"
+        icon={
+          <Icon
+            style={styles.icon}
+            fill="black"
+            name="arrow-ios-forward-outline"
+          />
+        }
       />
-      <RedirectCard 
-        screenName="Incomes" 
-        title="Renda" 
-        icon={( 
-          <Icon 
-            style={styles.icon} 
-            fill='black' 
-            name='arrow-ios-forward-outline' 
-          /> 
-        )} 
+      <RedirectCard
+        screenName="Incomes"
+        title="Renda"
+        icon={
+          <Icon
+            style={styles.icon}
+            fill="black"
+            name="arrow-ios-forward-outline"
+          />
+        }
       />
-      <RedirectCard 
-        screenName="Graphics" 
-        title="Gráficos" 
-        icon={( 
-          <Icon 
-            style={styles.icon} 
-            fill='black' 
-            name='arrow-ios-forward-outline' 
-          /> 
-        )} 
+      <RedirectCard
+        screenName="Graphics"
+        title="Gráficos"
+        icon={
+          <Icon
+            style={styles.icon}
+            fill="black"
+            name="arrow-ios-forward-outline"
+          />
+        }
       />
     </ScrollView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   view: margins.global,
@@ -111,11 +95,11 @@ const styles = StyleSheet.create({
     marginLeft: -155,
   },
   smile: {
-    alignItems: 'center',
+    alignItems: "center",
     letterSpacing: 5,
     marginTop: 35,
     marginLeft: 10,
-    transform: [{ rotate: '90deg'}],
+    transform: [{ rotate: "90deg" }],
     fontSize: 50,
     color: colors.white,
   },
@@ -135,6 +119,6 @@ const styles = StyleSheet.create({
     ...text.regular20,
     color: colors.primary,
   },
-})
+});
 
-export default Main
+export default Main;

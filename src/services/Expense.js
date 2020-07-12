@@ -1,53 +1,54 @@
+import secrets from '../config/secrets.json';
+const url = secrets.backend.dev;
+const token = secrets.token;
+
 import axios from "axios";
 
-export const create = async () => {
+export const create = async (params) => {
+  const data = {
+    _id: params._id,
+    paymentType: params.paymentType,
+    priority: params.priority,
+    description: params.description,
+    price: params.price,
+    category: params.category,
+    validity: new Date(params.validity),
+    type: params.type,
+    payDate: new Date(params.payDate),
+  };
   const response = await axios({
     method: "POST",
-    url: "http://192.168.100.144:8040/expense",
+    url: `${url}/expense`,
     headers: {
       authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjI5MGUxYTJiMzE3NjFlODVmMjNmZiIsImlhdCI6MTU5NDAwNzIwOCwiZXhwIjoxNTk0MDkzNjA4fQ.Dj5uMsnY3gb2_w12tUVhhQOmIFDVn-qfmxMB3W2dGw0",
+        `Bearer ${token}`
     },
-    data: {
-      _id: "5ee038792cbd704d399ecf0c",
-      paymentType: {
-        credit: true,
-        parceledOut: true,
-        installments: 3,
-      },
-      priority: "medium",
-      description: "Teclado Mecânico",
-      price: 275,
-      category: "work",
-      validity: new Date("2020/09/20"),
-      type: "lazer",
-      payDate: new Date(),
+    data
+  });
+
+  return response.data;
+};
+
+export const show = async (props) => {
+  const response = await axios({
+    method: "GET",
+    url: `${url}/expenses/${props._id}`,
+    headers: {
+      authorization:
+      `Bearer ${token}`,
     },
   });
 
   return response.data;
 };
 
-export const show = async () => {
+export const index = async (params) => {
   const response = await axios({
     method: "GET",
-    url: "http://192.168.100.144:8040/expenses/5ee038792cbd704d399ecf0c",
+    url: `${url}/expense/${params.expense_id}`,
     headers: {
       authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjI5MGUxYTJiMzE3NjFlODVmMjNmZiIsImlhdCI6MTU5NDAwNzIwOCwiZXhwIjoxNTk0MDkzNjA4fQ.Dj5uMsnY3gb2_w12tUVhhQOmIFDVn-qfmxMB3W2dGw0",
-    },
-  });
-
-  return response.data;
-};
-
-export const index = async () => {
-  const response = await axios({
-    method: "GET",
-    url: "http://192.168.100.144:8040/expense/5f02aa445608597932f9c09b",
-    headers: {
-      authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjI5MGUxYTJiMzE3NjFlODVmMjNmZiIsImlhdCI6MTU5NDAwNzIwOCwiZXhwIjoxNTk0MDkzNjA4fQ.Dj5uMsnY3gb2_w12tUVhhQOmIFDVn-qfmxMB3W2dGw0",
+        `Bearer ${token}`,
     },
   });
 
@@ -57,10 +58,10 @@ export const index = async () => {
 export const update = async () => {
   const response = await axios({
     method: "PUT",
-    url: "http://192.168.100.144:8040/expense",
+    url: `${url}/expense`,
     headers: {
       authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjI5MGUxYTJiMzE3NjFlODVmMjNmZiIsImlhdCI6MTU5NDAwNzIwOCwiZXhwIjoxNTk0MDkzNjA4fQ.Dj5uMsnY3gb2_w12tUVhhQOmIFDVn-qfmxMB3W2dGw0",
+        `Bearer ${token}`,
     },
     data: {
       expenseObject: {
@@ -84,13 +85,13 @@ export const update = async () => {
   return response.data;
 };
 
-export const remove = async () => {
+export const remove = async (props) => {
   const response = await axios({
     method: "DELETE",
-    url: "http://192.168.100.144:8040/expense/5f02b0368b1fbc06178c9589",
+    url: `${url}/expense/${props.expense_id}`,
     headers: {
       authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZjI5MGUxYTJiMzE3NjFlODVmMjNmZiIsImlhdCI6MTU5NDAwNzIwOCwiZXhwIjoxNTk0MDkzNjA4fQ.Dj5uMsnY3gb2_w12tUVhhQOmIFDVn-qfmxMB3W2dGw0",
+        `Bearer ${token}`,
     },
   });
 

@@ -5,12 +5,18 @@ import { expenses } from '../../helper/DataTest'
 import ExpenseCard from './ExpenseCard'
 import { text } from '../helper/GlobalStyle'
 
-const ExpensesList = () => {
+const ExpensesList = ({ requisitions }) => {
   const [rows, setRows] = useState([])
+
+  const handleGetExpense = async () => {
+    const response = await requisitions.show()
+
+    setRows(response.expenses.expenses)
+  }
   
   useEffect(() => {
-    setRows(expenses)
-  }, [])
+    handleGetExpense();
+  }, []);
 
   const handleTextInput = (value) => {
     const arr = expenses.filter(expense => expense.description.includes(value) || expense.price.includes(value))
