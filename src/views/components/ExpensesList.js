@@ -3,6 +3,7 @@ import { View, StyleSheet, ScrollView } from 'react-native'
 import { Input, Text } from '@ui-kitten/components'
 import { expenses } from '../../helper/DataTest'
 import ExpenseCard from './ExpenseCard'
+import { text } from '../helper/GlobalStyle'
 
 const ExpensesList = () => {
   const [rows, setRows] = useState([])
@@ -23,7 +24,7 @@ const ExpensesList = () => {
         {rows.map((row, idx) => (
           <Fragment key={row._id}>
             {(idx === 0 || row.payDate !== rows[idx-1].payDate) && (
-              <Text style={styles.date} category="c2">{row.payDate}</Text>
+              <Text style={styles.date}>{row.payDate}</Text>
             )}
             <ExpenseCard row={row} />
           </Fragment>
@@ -37,11 +38,7 @@ const styles = StyleSheet.create({
   date: {
     marginLeft: 15,
     marginBottom: 5,
-  },
-  card: {
-    marginTop: 5,
-    borderColor: 'transparent',
-    backgroundColor: 'transparent',
+    ...text.medium14,
   },
 })
 

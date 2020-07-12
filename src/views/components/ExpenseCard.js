@@ -39,7 +39,7 @@ const ExpenseCard = ({row}) => {
         <TouchableOpacity onPress={() => setShowingDetails(!showingDetails)}>
           <View style={styles.listCard}>
             <View>
-              <View style={styles.text}>
+              <View style={styles.content}>
                 {renderIcon(row.category)}
                 <Text style={styles.description}>{row.description}</Text>
                 <View style={styles.price}>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     height: 20,
     marginRight: 10,
   },
-  text: {
+  content: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
