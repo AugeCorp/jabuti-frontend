@@ -35,6 +35,10 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+# Expo
+*.expo/packager-info.json
+*.expo/settings.json
+
 # BUCK
 buck-out/
 \.buckd/
