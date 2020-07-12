@@ -1,9 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import { Input, Text } from '@ui-kitten/components'
-import { expenses } from '../../helper/DataTest'
 import ExpenseCard from './ExpenseCard'
-import { text } from '../helper/GlobalStyle'
+import { text } from '../../helper/GlobalStyle'
+import { expenses } from '../../helper/DataTest'
 
 const ExpensesList = ({ requisitions }) => {
   const [rows, setRows] = useState([])
@@ -15,7 +15,8 @@ const ExpensesList = ({ requisitions }) => {
   }
   
   useEffect(() => {
-    handleGetExpense();
+    // handleGetExpense();
+    setRows(expenses)
   }, []);
 
   const handleTextInput = (value) => {

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { StyleSheet, ScrollView, View } from 'react-native'
-import { Icon, Text } from '@ui-kitten/components'
+import React, { useState } from 'react'
+import { StyleSheet, ScrollView, View, Image } from 'react-native'
+import { Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
 import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
@@ -8,10 +8,12 @@ import { colors, text, margins } from '../../helper/GlobalStyle'
 
 const Main = () => {
   const [expenses, setExpenses] = useState({
-    majorExpense: 0,
-    minorExpense: 0,
-    allExpenses: 0,
+    major: 100000,
+    minor: 200,
+    all: 999090000,
   });
+
+  const [income, setIncome] = useState(20000);
 
   return (
     <ScrollView style={styles.view}>
@@ -28,44 +30,26 @@ const Main = () => {
         <Text style={styles.cents}>00</Text>
       </View>
 
-      <EconomyCard 
-        majorExpense={expenses.majorExpense} 
-        minorExpense={expenses.minorExpense} 
-        expenses={expenses.AllExpenses}
-        income="10000"
+      <EconomyCard
+        majorExpense={expenses.major}
+        minorExpense={expenses.minor}
+        expenses={expenses.all}
+        income={income}
       />
       <RedirectCard
         screenName="Expenses"
         title="Gastos"
-        icon={
-          <Icon
-            style={styles.icon}
-            fill="black"
-            name="arrow-ios-forward-outline"
-          />
-        }
+        icon={(<Image style={styles.icon} source={require('../../assets/images/icons/icon-expense.png')} />)}
       />
       <RedirectCard
         screenName="Incomes"
         title="Renda"
-        icon={
-          <Icon
-            style={styles.icon}
-            fill="black"
-            name="arrow-ios-forward-outline"
-          />
-        }
+        icon={(<Image style={styles.icon} source={require('../../assets/images/icons/icon-income.png')} />)}
       />
       <RedirectCard
         screenName="Graphics"
         title="Gráficos"
-        icon={
-          <Icon
-            style={styles.icon}
-            fill="black"
-            name="arrow-ios-forward-outline"
-          />
-        }
+        icon={(<Image style={styles.icon} source={require('../../assets/images/icons/icon-graphics.png')} />)}
       />
     </ScrollView>
   );
@@ -108,7 +92,7 @@ const styles = StyleSheet.create({
     height: 90,
     borderRadius: 20,
     backgroundColor: colors.primary,
-  },  
+  },
   economy: {
     marginTop: 40,
     ...text.regular35,

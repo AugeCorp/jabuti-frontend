@@ -6,14 +6,14 @@ import { colors, text } from '../../helper/GlobalStyle'
 const UserData = (props) => {
   return (
     <View style={styles.card}>
-      <Icon style={styles.icon} fill='#5719BE' name='arrow-ios-downward-outline' />
+      <Icon style={styles.icon} fill={colors.primary} name='arrow-ios-downward-outline' />
       <View style={styles.nameCard}>
         <Text category='p2'>carteira de</Text>
         <Text category='h5' style={styles.name}>
           {props.name}
         </Text>
       </View>
-      <Icon style={styles.icon} fill='#5719BE' name='person' />
+      <Icon style={styles.icon} fill={colors.primary} name='person' />
     </View>
   )
 }

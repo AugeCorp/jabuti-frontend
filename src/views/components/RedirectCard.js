@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Text, Icon } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
-import { text, colors, margins } from '../helper/GlobalStyle'
+import { text, colors, margins } from '../../helper/GlobalStyle'
 
 
 const RedirectCard = ({title, icon, screenName}) => {
@@ -12,7 +12,7 @@ const RedirectCard = ({title, icon, screenName}) => {
       <View style={styles.card}>
         <View style={styles.iconCard}>{icon}</View>
         <Text style={styles.title}>{title}</Text>
-        <Icon style={styles.icon} fill='#5719BE' name='arrow-ios-forward-outline' />
+        <Icon style={styles.icon} fill={colors.primary} name='arrow-ios-forward-outline' />
       </View>
     </TouchableOpacity>
   )

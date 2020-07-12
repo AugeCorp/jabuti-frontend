@@ -20,7 +20,7 @@ const Incomes = () => {
   return (
     <ScrollView style={styles.view}>
       <View style={styles.totalIncome}>
-        <Image style={styles.icon} source={require('../static/images/icons/income-icon.png')} />
+        <Image style={styles.icon} source={require('../../assets/images/icons/income-icon.png')} />
         <View>
           <Text style={styles.label}>total do mês:</Text>
           <View style={styles.moneyCard}>

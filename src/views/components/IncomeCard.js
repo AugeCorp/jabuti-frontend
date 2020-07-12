@@ -22,9 +22,9 @@ const IncomeCard = ({ income, percent }) => {
                 percent={percent}
                 radius={10}
                 borderWidth={4}
-                color="#5719BE"
+                color={colors.primary}
                 shadowColor="#D8D8D8"
-                bgColor="#FFFFFF"
+                bgColor={colors.white}
               />
               <Text style={styles.description}>{income.description}</Text>
               <Text style={styles.money}>R$ {income.value}</Text>
