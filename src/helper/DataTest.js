@@ -107,6 +107,34 @@ export const expenses = [
   }
 ]
 
+export const incomes = [
+  {
+    _id: 1,
+    description: 'Bolsa Família',
+    value: 10000,
+    type: 'fixed',
+    receiptDate: new Date(),
+  }, {
+    _id: 2,
+    description: 'Trabalho',
+    value: 150000,
+    type: 'fixed',
+    receiptDate: new Date(),
+  }, {
+    _id: 3,
+    description: 'Freela Design',
+    value: 20000,
+    type: 'variable',
+    receiptDate: new Date(2020, 0, 1),
+  }, {
+    _id: 4,
+    description: 'Auxílio Emergencial',
+    value: 60000,
+    type: 'variable',
+    receiptDate: new Date(2020, 7, 10),
+  }
+]
+
 export const user = {
   _id: 1,
   email: 'lucas.dev@gmail.com',
