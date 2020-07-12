@@ -19,8 +19,8 @@ const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
         </View>
       </View>
 
-      <Text category='h6' style={styles.graphicsLabel}>seus ganhos: {income}</Text>
-      <Text category='h6' style={styles.graphicsLabel}>seus gastos: {expenses}</Text>
+      <Text style={styles.graphicsLabel}>seus ganhos: {income}</Text>
+      <Text style={styles.graphicsLabel}>seus gastos: {expenses}</Text>
 
       <View style={styles.detailsCard}>
         <Text style={styles.details} onPress={() => console.log('aaaaa')}>
@@ -54,9 +54,8 @@ const styles = StyleSheet.create({
   },
   card: {
     marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 10,
     flex: 1,
-    borderColor: 'white',
     backgroundColor: colors.white,
     borderRadius: 15,
   },
