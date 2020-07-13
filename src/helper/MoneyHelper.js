@@ -22,3 +22,11 @@ export const decimalPercent = (percent) => {
   if (value[value.length - 1] === '0') return percent
   return value
 }
+
+export const formatMoney = (value) => {
+  if (value) {
+    return (value / 100).toFixed(2).replace('.', ',');
+  }
+
+  return value;
+};

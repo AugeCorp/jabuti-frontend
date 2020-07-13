@@ -4,6 +4,7 @@ import AddIncomeModal from '../components/AddIncomeModal'
 import IncomesList from '../components/IncomesList'
 import { colors, margins, text } from '../../helper/GlobalStyle'
 import { incomes } from '../../helper/DataTest'
+import { formatMoney } from '../../helper/MoneyHelper'
 
 
 const Incomes = () => {
@@ -25,7 +26,7 @@ const Incomes = () => {
           <Text style={styles.label}>total do mês:</Text>
           <View style={styles.moneyCard}>
             <Text style={styles.moneySign}>R$</Text>
-            <Text style={styles.money}>{totalIncome}</Text>
+            <Text style={styles.money}>{formatMoney(totalIncome)}</Text>
           </View>
         </View>
       </View>

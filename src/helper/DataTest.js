@@ -123,7 +123,7 @@ export const incomes = [
   }, {
     _id: 3,
     description: 'Freela Design',
-    value: 20000,
+    value: 20025,
     type: 'variable',
     receiptDate: new Date(2020, 0, 1),
   }, {
