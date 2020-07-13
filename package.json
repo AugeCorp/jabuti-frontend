@@ -12,7 +12,24 @@
   "dependencies": {
     "react": "16.11.0",
     "react-native": "0.62.2",
-    "realm": "^6.0.2"
+    "realm": "^6.0.2",
+    "@eva-design/eva": "^2.0.0",
+    "@react-native-community/async-storage": "^1.11.0",
+    "@react-native-community/masked-view": "0.1.6",
+    "@react-navigation/native": "^5.6.1",
+    "@react-navigation/stack": "^5.6.2",
+    "@ui-kitten/components": "^5.0.0",
+    "@ui-kitten/eva-icons": "^5.0.0",
+    "axios": "^0.19.2",
+    "react-dom": "~16.9.0",
+    "react-native-gesture-handler": "~1.6.0",
+    "react-native-linear-gradient": "react-native-community/react-native-linear-gradient",
+    "react-native-progress-circle": "^2.1.0",
+    "react-native-reanimated": "~1.7.0",
+    "react-native-safe-area-context": "0.7.3",
+    "react-native-screens": "~2.2.0",
+    "react-native-svg": "11.0.1",
+    "react-native-web": "~0.11.7"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
