@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, ScrollView, View, Image } from 'react-native'
 import { Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
@@ -6,22 +6,64 @@ import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
 import { colors, text, margins } from '../../helper/GlobalStyle'
 import { formatMoney } from '../../helper/MoneyHelper'
+import { expenses as expensesData, incomes as incomesData } from '../../helper/DataTest'
 
 const Main = () => {
-  const [moneyWasSaved, setMoneyWasSaved] = useState(false)
-  const [economyDifference, setEconomyDifference] = useState(90000)
+  const [moneyWasSaved, setMoneyWasSaved] = useState(true)
+  const [economyDifference, setEconomyDifference] = useState(0)
 
   const [expenses, setExpenses] = useState({
-    major: 10000,
-    minor: 200,
-    total: 45098,
+    major: 0,
+    minor: 0,
+    total: 0,
     list: []
   });
 
   const [incomes, setIncomes] = useState({
-    total: 150076
+    total: 0
   });
 
+  useEffect(() => {
+    // Setting expenses data
+    let majorExpense = 0
+    let minorExpense = 0
+    let totalExpenses = 0
+
+    expensesData.map(expense => {
+      if (expense.price > majorExpense || majorExpense === 0) {
+        majorExpense = expense.price
+      }
+      if (expense.price < minorExpense || minorExpense === 0) {
+        minorExpense = expense.price
+      }
+      totalExpenses += expense.price
+    })
+
+    setExpenses({
+      major: majorExpense,
+      minor: minorExpense,
+      total: totalExpenses,
+      list: expensesData
+    })
+
+    // Setting incomes data
+    let totalIncomes = 0
+
+    incomesData.map(income => totalIncomes += income.value)
+
+    setIncomes({ total: totalIncomes })
+
+
+    if (totalExpenses > totalIncomes) {
+      setMoneyWasSaved(false)
+      setEconomyDifference(totalExpenses - totalIncomes)
+    } else {
+      setMoneyWasSaved(true)
+      setEconomyDifference(totalIncomes - totalExpenses)
+    }
+  }, [])
+
+  console.log(expenses)
   return (
     <ScrollView style={styles.view}>
       <UserData name="Lucas Zacarias" />
