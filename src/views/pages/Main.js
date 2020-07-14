@@ -5,8 +5,12 @@ import UserData from '../components/UserData'
 import EconomyCard from '../components/EconomyCard' 
 import RedirectCard from '../components/RedirectCard'
 import { colors, text, margins } from '../../helper/GlobalStyle'
+import { formatMoney } from '../../helper/MoneyHelper'
 
 const Main = () => {
+  const [moneyWasSaved, setMoneyWasSaved] = useState(false)
+  const [economyDifference, setEconomyDifference] = useState(90000)
+
   const [expenses, setExpenses] = useState({
     major: 10000,
     minor: 200,
@@ -22,15 +26,20 @@ const Main = () => {
     <ScrollView style={styles.view}>
       <UserData name="Lucas Zacarias" />
 
-      <View style={styles.card}>
+      <View style={styles.economyCard}>
         <View style={styles.economyStatus}>
-          <Text style={styles.smile}>:)</Text>
+          <Text style={styles.smile}>{moneyWasSaved ? ':)' : ':('}</Text>
         </View>
-        <Text style={styles.economyInfo}>este mês</Text>
-        <Text style={styles.economyInfo2}>você economizou</Text>
-        <Text style={styles.moneySign}>R$</Text>
-        <Text style={styles.economy}>9.990.900,</Text>
-        <Text style={styles.cents}>00</Text>
+        <View style={styles.economyDescription}>
+          <Text style={styles.economyInfo}>este mês</Text>
+          <Text style={styles.economyInfo2}>
+            {moneyWasSaved ? 'você economizou' : 'você extrapolou'}
+          </Text>
+          <View style={styles.economyDifference}>
+            <Text style={styles.moneySign}>R$</Text>
+            <Text style={styles.economy}>{formatMoney(economyDifference)}</Text>
+          </View>
+        </View>
       </View>
 
       <EconomyCard expenses={expenses} incomes={incomes} />
@@ -71,28 +80,18 @@ const Main = () => {
 
 const styles = StyleSheet.create({
   view: margins.global,
-  card: {
+  economyCard: {
+    ...margins.content,
     flex: 1,
     flexDirection: 'row',
-    paddingLeft: 10,
     marginTop: 20,
     marginBottom: 20
   },
-  economyInfo: {
-    marginLeft: 5,
-    ...text.light20,
-    alignSelf: 'flex-start'
-  },
-  economyInfo2: {
-    ...text.light20,
-    marginTop: 20,
-    marginLeft: -80
-  },
-  moneySign: {
-    ...text.regular20,
-    color: colors.primary,
-    marginTop: 55,
-    marginLeft: -155
+  economyStatus: {
+    width: 90,
+    height: 90,
+    borderRadius: 20,
+    backgroundColor: colors.primary
   },
   smile: {
     alignItems: 'center',
@@ -103,21 +102,31 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: colors.white
   },
-  economyStatus: {
-    width: 90,
-    height: 90,
-    borderRadius: 20,
-    backgroundColor: colors.primary
+  economyDescription: {
+    flexDirection: 'column',
+    marginLeft: 5
+  },
+  economyInfo: {
+    ...text.light20,
+    alignSelf: 'flex-start'
+  },
+  economyInfo2: {
+    ...text.light20,
+    marginTop: -5
+  },
+  economyDifference: {
+    flexDirection: 'row',
+    marginTop: -5
+  },
+  moneySign: {
+    ...text.regular20,
+    color: colors.primary,
+    marginTop: 14
   },
   economy: {
-    marginTop: 40,
     ...text.regular35,
-    color: colors.primary
-  },
-  cents: {
-    marginTop: 55,
-    ...text.regular20,
-    color: colors.primary
+    color: colors.primary,
+    marginLeft: 2
   }
 });
 
