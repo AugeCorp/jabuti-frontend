@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import Main from './views/pages/Main'
 import Incomes from './views/pages/Incomes'
+import Goals from './views/pages/Goals'
 import Expenses from './views/pages/Expenses'
 import AddExpenses from './views/pages/AddExpenses'
 import Graphics from './views/pages/Graphics'
@@ -29,6 +30,16 @@ const Route = () => (
           component={Incomes}
           options={{
             title: 'Renda',
+            headerTintColor: colors.primary,
+            headerTitleAlign: 'center',
+          }}
+        />
+
+        <Stack.Screen
+          name="Goals"
+          component={Goals}
+          options={{
+            title: 'Objetivos',
             headerTintColor: colors.primary,
             headerTitleAlign: 'center',
           }}

@@ -135,6 +135,60 @@ export const incomes = [
   }
 ]
 
+export const goals = [
+  {
+    _id: 1,
+    description: 'Viajar para Paris',
+    price: 1500000,
+    moneySaved: 160000,
+    category: 'Lazer',
+    conquered: false,
+    conquestDate: new Date(2022, 7, 12),
+    createdAt: new Date(2020, 6, 14),
+    updatedAt: new Date(2020, 6, 14),
+  }, {
+    _id: 2,
+    description: 'PC novo',
+    price: 500000,
+    moneySaved: 54000,
+    category: 'Lazer',
+    conquered: false,
+    conquestDate: new Date(2021, 7, 9),
+    createdAt: new Date(2020, 3, 10),
+    updatedAt: new Date(2020, 3, 10),
+  }, {
+    _id: 3,
+    description: 'Carro novo',
+    price: 3000000,
+    moneySaved: 200000,
+    category: 'Outros',
+    conquered: false,
+    conquestDate: new Date(2024, 0, 1),
+    createdAt: new Date(2020, 8, 8),
+    updatedAt: new Date(2020, 8, 8),
+  }, {
+    _id: 4,
+    description: 'Headset novo',
+    price: 20000,
+    moneySaved: 20000,
+    category: 'Lazer',
+    conquered: true,
+    conquestDate: new Date(2019, 8, 1),
+    createdAt: new Date(2020, 1, 1),
+    updatedAt: new Date(2020, 1, 1),
+  }, {
+    _id: 5,
+    description: 'Liquidificador',
+    price: 20000,
+    moneySaved: 20000,
+    category: 'Lazer',
+    conquered: true,
+    conquestDate: new Date(2019, 5, 20),
+    createdAt: new Date(2020, 3, 11),
+    updatedAt: new Date(2020, 3, 11),
+  }
+]
+
 export const user = {
   _id: 1,
   email: 'lucas.dev@gmail.com',

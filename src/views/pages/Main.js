@@ -106,8 +106,8 @@ const Main = () => {
         }
       />
       <RedirectCard
-        screenName="Graphics"
-        title="Gráficos"
+        screenName="Goals"
+        title="Objetivos"
         icon={
           <Image
             style={styles.icon}
@@ -115,6 +115,7 @@ const Main = () => {
           />
         }
       />
+      <View style={styles.margin} />
     </ScrollView>
   );
 };
@@ -125,8 +126,8 @@ const styles = StyleSheet.create({
     ...margins.content,
     flex: 1,
     flexDirection: 'row',
-    marginTop: 20,
-    marginBottom: 20
+    marginTop: 10,
+    marginBottom: 10
   },
   economyStatus: {
     width: 90,
@@ -168,6 +169,9 @@ const styles = StyleSheet.create({
     ...text.regular35,
     color: colors.primary,
     marginLeft: 2
+  },
+  margin: {
+    marginBottom: 50
   }
 });
 
