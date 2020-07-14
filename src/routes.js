@@ -24,7 +24,7 @@ const Route = () => (
           }}
         />
 
-        <Stack.Screen 
+        <Stack.Screen
           name="Incomes"
           component={Incomes}
           options={{
@@ -48,7 +48,7 @@ const Route = () => (
           name="AddExpenses"
           component={AddExpenses}
           options={{
-            title: 'Gastos',
+            title: 'Adicionar Gasto',
             headerTintColor: colors.primary,
             headerTitleAlign: 'center',
           }}

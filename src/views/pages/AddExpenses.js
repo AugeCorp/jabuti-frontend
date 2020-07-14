@@ -8,8 +8,6 @@ import {
   CheckBox,
   Radio,
   Calendar,
-  Select,
-  IndexPath
 } from "@ui-kitten/components";
 import { colors, text } from "../../helper/GlobalStyle";
 
@@ -93,7 +91,7 @@ const AddExpenses = ({ requisitions }) => {
       {fixExpense && (
         <>
           <Text style={styles.label}>Selecione a data:</Text>
-          <Calendar date={date} onSelect={(nextDate) => setDate(nextDate)} style={styles.calendar}/>
+          <Calendar date={date} onSelect={(nextDate) => setDate(nextDate)} style={styles.calendar} />
         </>
       )}
 

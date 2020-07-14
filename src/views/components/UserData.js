@@ -21,25 +21,24 @@ const UserData = (props) => {
 const styles = StyleSheet.create({
   nameCard: {
     flex: 1,
-    alignItems: 'flex-end',
+    alignItems: 'flex-end'
   },
   name: {
     color: colors.primary,
-    ...text.light20,
+    ...text.light20
   },
   card: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 30,
     padding: 10,
     backgroundColor: 'transparent',
-    borderColor: 'transparent',
+    borderColor: 'transparent'
   },
   icon: {
     alignSelf: 'center',
     width: 50,
-    height: 50,
-  },
+    height: 50
+  }
 })
 
 export default UserData
