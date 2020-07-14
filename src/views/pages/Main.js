@@ -8,7 +8,7 @@ import { colors, text, margins } from '../../helper/GlobalStyle'
 
 const Main = () => {
   const [expenses, setExpenses] = useState({
-    major: 100000,
+    major: 10000,
     minor: 200,
     total: 45098,
     list: []
@@ -75,48 +75,50 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     paddingLeft: 10,
+    marginTop: 20,
+    marginBottom: 20
   },
   economyInfo: {
     marginLeft: 5,
     ...text.light20,
-    alignSelf: 'flex-start',
+    alignSelf: 'flex-start'
   },
   economyInfo2: {
     ...text.light20,
     marginTop: 20,
-    marginLeft: -80,
+    marginLeft: -80
   },
   moneySign: {
     ...text.regular20,
     color: colors.primary,
     marginTop: 55,
-    marginLeft: -155,
+    marginLeft: -155
   },
   smile: {
-    alignItems: "center",
+    alignItems: 'center',
     letterSpacing: 5,
-    marginTop: 35,
+    marginTop: 40,
     marginLeft: 10,
-    transform: [{ rotate: "90deg" }],
-    fontSize: 50,
-    color: colors.white,
+    transform: [{ rotate: '90deg' }],
+    fontSize: 40,
+    color: colors.white
   },
   economyStatus: {
     width: 90,
     height: 90,
     borderRadius: 20,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.primary
   },
   economy: {
     marginTop: 40,
     ...text.regular35,
-    color: colors.primary,
+    color: colors.primary
   },
   cents: {
     marginTop: 55,
     ...text.regular20,
-    color: colors.primary,
-  },
+    color: colors.primary
+  }
 });
 
 export default Main;

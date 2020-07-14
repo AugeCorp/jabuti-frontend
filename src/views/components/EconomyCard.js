@@ -4,6 +4,7 @@ import { Text, Icon } from '@ui-kitten/components'
 
 import MainGraphic from './MainGraphic'
 import { colors, text, margins } from '../../helper/GlobalStyle'
+import { formatMoney } from '../../helper/MoneyHelper'
 
 
 const EconomyCard = ({ expenses, incomes }) => {
@@ -17,11 +18,11 @@ const EconomyCard = ({ expenses, incomes }) => {
       <View style={styles.expensesCard}>
         <View style={styles.individualCard}>
           <Text style={styles.expensesLabel}>MAIOR GASTO</Text>
-          <Text style={styles.major}>R$ {expenses.major}</Text>
+          <Text style={styles.major}>R$ {formatMoney(expenses.major)}</Text>
         </View>
         <View>
           <Text style={styles.expensesLabel}>MENOR GASTO</Text>
-          <Text style={styles.minor}>R$ {expenses.minor}</Text>
+          <Text style={styles.minor}>R$ {formatMoney(expenses.minor)}</Text>
         </View>
       </View>
 
