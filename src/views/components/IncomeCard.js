@@ -35,7 +35,9 @@ const IncomeCard = ({ income, percent }) => {
             <View style={styles.others}>
               <Text style={styles.percent}>{decimalPercent(percent)}%</Text>
               <Text>da renda</Text>
-              <Text style={styles.date}>{dateToString(income.receiptDate)}</Text>
+              <Text style={styles.date}>
+                {dateToString(income.receiptDate)}
+              </Text>
             </View>
           )}
         </View>

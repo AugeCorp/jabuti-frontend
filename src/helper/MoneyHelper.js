@@ -18,7 +18,7 @@ export const decimalPercent = (percent) => {
     return null
   }
   const value = percent.toFixed(1).toString().replace('.', ',')
-  if (value[value.length - 1] === '0') return percent
+  if (value.split(',')[1][0] === '0') return value.split(',')[0]
   return value
 }
 
