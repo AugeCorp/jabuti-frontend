@@ -11,17 +11,16 @@ import { expenses as expensesData, incomes as incomesData } from '../../helper/D
 const Main = () => {
   const [moneyWasSaved, setMoneyWasSaved] = useState(true)
   const [economyDifference, setEconomyDifference] = useState(0)
-
   const [expenses, setExpenses] = useState({
     major: 0,
     minor: 0,
     total: 0,
     list: []
   });
-
   const [incomes, setIncomes] = useState({
     total: 0
   });
+
 
   useEffect(() => {
     // Setting expenses data
@@ -63,7 +62,7 @@ const Main = () => {
     }
   }, [])
 
-  console.log(expenses)
+
   return (
     <ScrollView style={styles.view}>
       <UserData name="Lucas Zacarias" />

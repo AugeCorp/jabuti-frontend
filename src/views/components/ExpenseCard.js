@@ -3,6 +3,7 @@ import { View, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { Text } from '@ui-kitten/components'
 import { colors, text, margins } from '../../helper/GlobalStyle'
 import { priorityLevelStyle } from '../../helper/ExpensesHelper'
+import { formatMoney } from '../../helper/MoneyHelper'
 
 const ExpenseCard = ({row}) => {
   const [showingDetails, setShowingDetails] = useState(false)
@@ -44,7 +45,7 @@ const ExpenseCard = ({row}) => {
                 <Text style={styles.description}>{row.description}</Text>
                 <View style={styles.price}>
                   <Text style={styles.symbol}>R$ </Text>
-                  <Text style={styles.number}>{row.price}</Text>
+                  <Text style={styles.number}>{formatMoney(row.price)}</Text>
                 </View>
               </View>
             </View>
@@ -54,7 +55,9 @@ const ExpenseCard = ({row}) => {
                 <Text style={styles.category}>{row.category}</Text>
                 <View style={styles.price}>
                   <Text style={styles.priorityLabel}>Prioridade </Text>
-                  <Text style={{color: `${priorityLevelStyle(row.priority)}`, ...text.medium14}}>{row.priority.toLowerCase()}</Text>
+                  <Text style={{color: `${priorityLevelStyle(row.priority)}`, ...text.medium14}}>
+                    {row.priority.toLowerCase()}
+                  </Text>
                 </View>
               </View>
             )}
