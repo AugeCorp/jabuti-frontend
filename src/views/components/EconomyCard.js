@@ -1,9 +1,15 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Text, Icon } from '@ui-kitten/components'
+
+import MainGraphic from './MainGraphic'
 import { colors, text, margins } from '../../helper/GlobalStyle'
 
-const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
+
+const EconomyCard = ({ expenses, incomes }) => {
+  const highestValue =
+    expenses.total >= incomes.total ? expenses.total : incomes.total
+
   return (
     <View style={styles.card}>
       <Text style={styles.title}>resumo do mês</Text>
@@ -11,16 +17,27 @@ const EconomyCard = ({majorExpense, minorExpense, expenses, income}) => {
       <View style={styles.expensesCard}>
         <View style={styles.individualCard}>
           <Text style={styles.expensesLabel}>MAIOR GASTO</Text>
-          <Text style={styles.major}>R$ {majorExpense}</Text>
+          <Text style={styles.major}>R$ {expenses.major}</Text>
         </View>
         <View>
           <Text style={styles.expensesLabel}>MENOR GASTO</Text>
-          <Text style={styles.minor}>R$ {minorExpense}</Text>
+          <Text style={styles.minor}>R$ {expenses.minor}</Text>
         </View>
       </View>
 
-      <Text style={styles.graphicsLabel}>seus ganhos: {income}</Text>
-      <Text style={styles.graphicsLabel}>seus gastos: {expenses}</Text>
+      <MainGraphic
+        label="seus ganhos:"
+        graphicColor={colors.primary}
+        totalValue={highestValue}
+        graphicValue={incomes.total}
+      />
+
+      <MainGraphic
+        label="seus gastos:"
+        graphicColor={colors.secondary}
+        totalValue={highestValue}
+        graphicValue={expenses.total}
+      />
 
       <View style={styles.detailsCard}>
         <Text style={styles.details} onPress={() => console.log('aaaaa')}>
@@ -53,6 +70,7 @@ const styles = StyleSheet.create({
     color: colors.success,
   },
   card: {
+    ...margins.content,
     marginTop: 30,
     marginBottom: 10,
     flex: 1,
@@ -67,12 +85,6 @@ const styles = StyleSheet.create({
   },
   individualCard: {
     paddingRight: 50,
-  },
-  graphicsLabel: {
-    ...text.light18,
-    color: colors.midGrey,
-    marginLeft: 12,
-    marginTop: 25,
   },
   detailsCard: {
     flex: 1,

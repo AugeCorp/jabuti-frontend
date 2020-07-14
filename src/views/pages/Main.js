@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { StyleSheet, ScrollView, View, Image } from 'react-native'
 import { Text } from '@ui-kitten/components'
 import UserData from '../components/UserData'
-import EconomyCard from '../components/EconomyCard'
+import EconomyCard from '../components/EconomyCard' 
 import RedirectCard from '../components/RedirectCard'
 import { colors, text, margins } from '../../helper/GlobalStyle'
 
@@ -10,10 +10,13 @@ const Main = () => {
   const [expenses, setExpenses] = useState({
     major: 100000,
     minor: 200,
-    all: 999090000,
+    total: 45098,
+    list: []
   });
 
-  const [income, setIncome] = useState(20000);
+  const [incomes, setIncomes] = useState({
+    total: 150076
+  });
 
   return (
     <ScrollView style={styles.view}>
@@ -30,12 +33,8 @@ const Main = () => {
         <Text style={styles.cents}>00</Text>
       </View>
 
-      <EconomyCard
-        majorExpense={expenses.major}
-        minorExpense={expenses.minor}
-        expenses={expenses.all}
-        income={income}
-      />
+      <EconomyCard expenses={expenses} incomes={incomes} />
+
       <RedirectCard
         screenName="Expenses"
         title="Gastos"
