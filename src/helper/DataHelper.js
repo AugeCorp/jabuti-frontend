@@ -20,11 +20,3 @@ export const dateToString = (date) => {
     + '/' + monthNumbers[date.getMonth()]
     + '/' + date.getFullYear()
 }
-
-export const FormatMoney = (value) => {
-  if (value) {
-    return `R$ ${(value / 100).toFixed(2).replace('.', ',')}`;
-  }
-
-  return value;
-};

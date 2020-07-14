@@ -4,13 +4,13 @@ import { Text } from '@ui-kitten/components'
 import ProgressCircle from 'react-native-progress-circle'
 import { colors, text, margins } from '../../helper/GlobalStyle'
 import { decimalPercent } from '../../helper/MoneyHelper'
+import { formatMoney } from '../../helper/MoneyHelper'
 import { dateToString } from '../../helper/DataHelper'
-
 
 
 const IncomeCard = ({ income, percent }) => {
   const [showingDetails, setShowingDetails] = useState(false)
-  
+
   return (
     <View>
       <TouchableOpacity onPress={() => setShowingDetails(!showingDetails)}>
@@ -27,7 +27,7 @@ const IncomeCard = ({ income, percent }) => {
                 bgColor={colors.white}
               />
               <Text style={styles.description}>{income.description}</Text>
-              <Text style={styles.money}>R$ {income.value}</Text>
+              <Text style={styles.money}>R$ {formatMoney(income.value)}</Text>
             </View>
           </View>
 

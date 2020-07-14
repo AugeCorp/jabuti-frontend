@@ -46,6 +46,7 @@ export const text = {
 }
 
 export const margins = {
+  totalMargin: 50,
   global: {
     padding: 10,
   },
