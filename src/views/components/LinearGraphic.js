@@ -24,7 +24,7 @@ const LinearGraphic = ({ color, height, value, totalValue }) => {
   })
 
   return (
-    <View style={{ width }}>
+    <View style={{ width: totalValue ? width : Dimensions.get('window').width - margins.totalMargin }}>
       <View style={styles.graphicTop}>
         <Text style={styles.value}>R$ {formatMoney(value)}</Text>
       </View>
