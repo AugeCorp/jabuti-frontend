@@ -6,7 +6,6 @@ export const toCurrency = (value) => {
   return value
 }
 
-
 export const toPercent = (totalValue, valueToPercent) => {
   if (!totalValue || !valueToPercent) {
     return null
