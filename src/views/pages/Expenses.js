@@ -4,6 +4,7 @@ import ExpensesList from '../components/ExpensesList'
 import AddExpenseModal from '../components/AddExpensesModal'
 import { margins } from '../../helper/GlobalStyle'
 import Expense from '../../controllers/Expense';
+import AddButton from '../components/AddButton'
 const expense = new Expense();
 
 const Expenses = () => {
@@ -29,16 +30,16 @@ const Expenses = () => {
 
   return (
     <>
-      <AddExpenseModal requisitions={handleExpenseRequisitions} />
       <ScrollView style={styles.view}>
         <ExpensesList requisitions={handleExpenseRequisitions} />
       </ScrollView>
+      <AddButton screenName="AddExpenses" requisitions={handleExpenseRequisitions} />
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  view: margins.global
+  view: margins.global,
 })
 
 export default Expenses

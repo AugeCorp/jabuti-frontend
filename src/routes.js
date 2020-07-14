@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Main from './views/pages/Main'
 import Incomes from './views/pages/Incomes'
 import Expenses from './views/pages/Expenses'
+import AddExpenses from './views/pages/AddExpenses'
 import Graphics from './views/pages/Graphics'
 import { colors } from './helper/GlobalStyle'
 
@@ -36,6 +37,16 @@ const Route = () => (
         <Stack.Screen
           name="Expenses"
           component={Expenses}
+          options={{
+            title: 'Gastos',
+            headerTintColor: colors.primary,
+            headerTitleAlign: 'center',
+          }}
+        />
+
+        <Stack.Screen
+          name="AddExpenses"
+          component={AddExpenses}
           options={{
             title: 'Gastos',
             headerTintColor: colors.primary,
