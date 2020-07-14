@@ -88,11 +88,12 @@ const styles = StyleSheet.create({
     paddingRight: 50,
   },
   detailsCard: {
+    ...margins.content,
     flex: 1,
     flexDirection: 'row',
     alignSelf: 'flex-end',
-    ...margins.content,
-    paddingBottom: 10,
+    paddingTop: 15,
+    paddingBottom: 15
   },
   details: {
     ...text.medium12,
