@@ -5,6 +5,7 @@ import { Text } from '@ui-kitten/components';
 import { colors, text, margins } from '../../helper/GlobalStyle';
 import { priorityLevelStyle } from '../../helper/ExpensesHelper';
 import { formatMoney } from '../../helper/MoneyHelper';
+import { deleteExpense } from '../../api/ExpenseController';
 
 const ExpenseCard = ({row}) => {
   const [showingDetails, setShowingDetails] = useState(false);
@@ -35,6 +36,9 @@ const ExpenseCard = ({row}) => {
     return <Image style={styles.icon} source={require('../../assets/images/icons/icon-recreation-outline.png')} />;
   };
 
+  async function deleteRow(id){
+   await deleteExpense(id);
+  }
   return (
     <View>
       <>
@@ -54,6 +58,7 @@ const ExpenseCard = ({row}) => {
             {showingDetails && (
               <View style={styles.others}>
                 <Text style={styles.category}>{row.category}</Text>
+                <Text style={styles.delete} onPress={async () => await deleteRow(row.id)}>Deletar</Text>
                 <View style={styles.price}>
                   <Text style={styles.priorityLabel}>Prioridade </Text>
                   <Text style={{color: `${priorityLevelStyle(row.priority)}`, ...text.medium14}}>
@@ -108,6 +113,11 @@ const styles = StyleSheet.create({
   category: {
     ...text.medium14,
     color: colors.primary,
+  },
+  delete: {
+    ...text.medium14,
+    color: colors.error,
+    marginLeft: 30,
   },
   priorityLabel: text.light14,
 });

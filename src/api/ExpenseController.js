@@ -37,10 +37,11 @@ const updateExpense = async (params, PaymentType) => {
 
 const deleteExpense = async(id) => {
   const realm = await getRealm();
-  let Expense = realm.objects('Expense').filtered(`id = ${id}`);
+  let Expense = realm.objects('Expense').filter((expense) => expense.id === id)[0];
   realm.write(() =>{
     realm.delete(Expense);
   });
+  realm.close();
   return {success: true};
 };
 
