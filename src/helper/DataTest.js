@@ -196,9 +196,7 @@ export const user = {
   googleAccount: false,
   name: 'Lucas Zacarias',
   isActive: true,
-  accesses: {
-    lastAccess: new Date(),
-  },
+  lastAccess: new Date(),
   token: 'abcdefghij123456',
   createdAt: new Date(),
   updatedAt: new Date(), 

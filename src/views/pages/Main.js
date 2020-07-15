@@ -6,7 +6,7 @@ import EconomyCard from '../components/EconomyCard'
 import RedirectCard from '../components/RedirectCard'
 import { colors, text, margins } from '../../helper/GlobalStyle'
 import { formatMoney } from '../../helper/MoneyHelper'
-import { expenses as expensesData, incomes as incomesData } from '../../helper/DataTest'
+import { expenses as expensesData, incomes as incomesData, user as userData } from '../../helper/DataTest'
 
 const Main = () => {
   const [moneyWasSaved, setMoneyWasSaved] = useState(true)
@@ -65,7 +65,7 @@ const Main = () => {
 
   return (
     <ScrollView style={styles.view}>
-      <UserData name="Lucas Zacarias" />
+      <UserData name={userData.name} email={userData.email} lastAccess={userData.lastAccess} />
 
       <View style={styles.economyCard}>
         <View style={styles.economyStatus}>
