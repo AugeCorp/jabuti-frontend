@@ -4,6 +4,7 @@ import { Text } from '@ui-kitten/components'
 import { colors, text, margins } from '../../helper/GlobalStyle'
 import { formatMoney } from '../../helper/MoneyHelper'
 import { dateToString } from '../../helper/DataHelper'
+import GoalGraphic from '../components/GoalGraphic'
 
 
 const IncomeCard = ({ goal, percent, color }) => {
@@ -60,7 +61,13 @@ const IncomeCard = ({ goal, percent, color }) => {
         </View>
 
         {showingDetails && (
-          <></>
+          <View style={styles.others}>
+            <GoalGraphic
+              graphicColor={colors.primary}
+              totalValue={goal.price}
+              graphicValue={goal.moneySaved}
+            />
+          </View>
         )}
       </View>
     </TouchableOpacity>
