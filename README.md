@@ -4,9 +4,9 @@ Para rodar a primeira vez, configurar o computador conforme link abaixo:
 react-native.rocketseat.dev/
 
 Depois executar:
-==> sudo npm install -g react-native-cli
-==> chmod 775 android/gradlew
-==> yarn install
+- sudo npm install -g react-native-cli
+- chmod 775 android/gradlew
+- yarn install
 
 
 Para rodar o sistema:
