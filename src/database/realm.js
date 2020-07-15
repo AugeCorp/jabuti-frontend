@@ -12,12 +12,20 @@ import PaymentTypeSchema from '../schemas/PaymentTypeSchema';
 export default function getRealm() {
    return Realm.open({
     schema: [UserSchema.schema, GoalsSchema.schema, IncomeSchema.schema, PaymentTypeSchema.schema, ExpenseSchema.schema],
-    schemaVersion: 8,
+    schemaVersion: 12,
     migration: (oldRealm, newRealm) => {
       // only apply this change if upgrading to schemaVersion 1
-      if (oldRealm.schemaVersion < 8) {
+      if (oldRealm.schemaVersion < 12) {
         let oldObjects = oldRealm.objects('User');
         let newObjects = newRealm.objects('User');
+
+        // loop through all objects and set the name property in the new schema
+        for (let i = 0; i < oldObjects.length; i++) {
+          newObjects[i].name = oldObjects[i].firstName + ' ' + oldObjects[i].lastName;
+        }
+
+        oldObjects = oldRealm.objects('Expense');
+        newObjects = newRealm.objects('Expense');
 
         // loop through all objects and set the name property in the new schema
         for (let i = 0; i < oldObjects.length; i++) {

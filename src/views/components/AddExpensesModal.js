@@ -1,3 +1,6 @@
+/* eslint-disable radix */
+/* eslint-disable quotes */
+/* eslint-disable prettier/prettier */
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import {
@@ -54,14 +57,14 @@ const AddExpenseModal = ({ requisitions }) => {
   };
 
   const handleClearSites = () => {
-    setTitle('')
-    setFixExpense(false)
-    setDate(new Date())
-    setPaymentType('cash')
-    setPrice('')
-    setPriorityLevel('highest')
-    setParceledOut(false)
-  }
+    setTitle('');
+    setFixExpense(false);
+    setDate(new Date());
+    setPaymentType('cash');
+    setPrice('');
+    setPriorityLevel('highest');
+    setParceledOut(false);
+  };
 
   const PlusIcon = (props) => <Icon {...props} name="plus-outline" />;
 

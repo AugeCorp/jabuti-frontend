@@ -1,39 +1,40 @@
-import React, { useState } from 'react'
-import { View, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import { Text } from '@ui-kitten/components'
-import { colors, text, margins } from '../../helper/GlobalStyle'
-import { priorityLevelStyle } from '../../helper/ExpensesHelper'
-import { formatMoney } from '../../helper/MoneyHelper'
+/* eslint-disable prettier/prettier */
+import React, { useState } from 'react';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Text } from '@ui-kitten/components';
+import { colors, text, margins } from '../../helper/GlobalStyle';
+import { priorityLevelStyle } from '../../helper/ExpensesHelper';
+import { formatMoney } from '../../helper/MoneyHelper';
 
 const ExpenseCard = ({row}) => {
-  const [showingDetails, setShowingDetails] = useState(false)
+  const [showingDetails, setShowingDetails] = useState(false);
 
   const renderIcon = (expenseCategory) => {
     if (expenseCategory === 'Lazer') {
-      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-recreation-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-recreation-outline.png')} />;
     }
     if (expenseCategory === 'Casa') {
-      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-home-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-home-outline.png')} />;
     }
     if (expenseCategory === 'Estudo') {
-      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-book-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-book-outline.png')} />;
     }
     if (expenseCategory === 'Alimentação') {
-      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-burger-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-burger-outline.png')} />;
     }
     if (expenseCategory === 'Saúde') {
-      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-heart-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-heart-outline.png')} />;
     }
     if (expenseCategory === 'Vestimenta') {
-      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-shirt-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-shirt-outline.png')} />;
     }
     if (expenseCategory === 'Transporte') {
-      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-car-outline.png')} />
+      return <Image style={styles.icon} source={require('../../assets/images/icons/icon-car-outline.png')} />;
     }
 
-    return <Image style={styles.icon} source={require('../../assets/images/icons/icon-recreation-outline.png')} />
-  }
-  
+    return <Image style={styles.icon} source={require('../../assets/images/icons/icon-recreation-outline.png')} />;
+  };
+
   return (
     <View>
       <>
@@ -65,8 +66,8 @@ const ExpenseCard = ({row}) => {
         </TouchableOpacity>
       </>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   listCard: {
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 10,
     marginBottom: 10,
-    ...margins.content
+    ...margins.content,
   },
   icon: {
     width: 20,
@@ -109,6 +110,6 @@ const styles = StyleSheet.create({
     color: colors.primary,
   },
   priorityLabel: text.light14,
-})
+});
 
-export default ExpenseCard
+export default ExpenseCard;
