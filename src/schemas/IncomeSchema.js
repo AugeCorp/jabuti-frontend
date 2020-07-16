@@ -7,7 +7,7 @@ export default class IncomeSchema {
       id: {type: 'int',  indexed: true},
       description: {type: 'string', default: ''},
       type: {type: 'string', default: ''},
-      value: {type: 'bool', default: true},
+      value: {type: 'int', default: 0},
       receiptDate: {type: 'date'},
     },
   };

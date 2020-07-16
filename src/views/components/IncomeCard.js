@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
-import { View, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import { Text } from '@ui-kitten/components'
-import ProgressCircle from 'react-native-progress-circle'
-import { colors, text, margins } from '../../helper/GlobalStyle'
-import { decimalPercent } from '../../helper/MoneyHelper'
-import { formatMoney } from '../../helper/MoneyHelper'
-import { dateToString } from '../../helper/DataHelper'
+/* eslint-disable prettier/prettier */
+import React, { useState } from 'react';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Text } from '@ui-kitten/components';
+import ProgressCircle from 'react-native-progress-circle';
+import { colors, text, margins } from '../../helper/GlobalStyle';
+import { decimalPercent } from '../../helper/MoneyHelper';
+import { formatMoney } from '../../helper/MoneyHelper';
+import { dateToString } from '../../helper/DataHelper';
 
 
 const IncomeCard = ({ income, percent }) => {
-  const [showingDetails, setShowingDetails] = useState(false)
+  const [showingDetails, setShowingDetails] = useState(false);
 
   return (
     <View>
@@ -43,8 +44,8 @@ const IncomeCard = ({ income, percent }) => {
         </View>
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   listCard: {
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 10,
     marginBottom: 10,
-    ...margins.content
+    ...margins.content,
   },
   content: {
     flex: 1,
@@ -89,6 +90,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginTop: 10,
   },
-})
+});
 
-export default IncomeCard
+export default IncomeCard;
