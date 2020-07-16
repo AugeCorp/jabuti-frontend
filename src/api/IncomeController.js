@@ -13,10 +13,10 @@ const getIncome = async (id) =>{
   return Expense;
 };
 
-const createIncome = async (Income) => {
+const createIncome = async (income) => {
   const realm = await getRealm();
   realm.write(() =>{
-    realm.create('Income', Income, true);
+    realm.create('Income', income, true);
   });
   const Income = await getIncomes();
   return Income;
