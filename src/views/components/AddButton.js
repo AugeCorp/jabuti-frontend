@@ -1,16 +1,13 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { Button, Icon } from "@ui-kitten/components";
-import { useNavigation } from '@react-navigation/native'
 
-const AddButton = ({screenName, requesitions}) => {
+const AddButton = ({action, requesitions}) => {
   const PlusIcon = (props) => <Icon {...props} name="plus-outline" />;
-
-  const navigation = useNavigation();
 
   return (
     <Button
-      onPress={() => navigation.navigate(screenName)}
+      onPress={() => action()}
       style={styles.button}
       accessoryLeft={PlusIcon}
       requesitions={requesitions}

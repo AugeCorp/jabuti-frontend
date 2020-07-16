@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { Text } from '@ui-kitten/components';
-import { colors, text, margins } from '../../helper/GlobalStyle';
-import { priorityLevelStyle } from '../../helper/ExpensesHelper';
-import { formatMoney } from '../../helper/MoneyHelper';
-import { deleteExpense } from '../../api/ExpenseController';
+import { Text, Icon } from '@ui-kitten/components';
 
-const ExpenseCard = ({row}) => {
+import { colors, text, margins } from '../../helper/GlobalStyle';
+import { priorityLevelStyle, priorityLevelText } from '../../helper/ExpensesHelper';
+import { formatMoney } from '../../helper/MoneyHelper';
+
+const ExpenseCard = ({row, deleteRow, handleEditExpense}) => {
   const [showingDetails, setShowingDetails] = useState(false);
 
   const renderIcon = (expenseCategory) => {
@@ -36,9 +36,7 @@ const ExpenseCard = ({row}) => {
     return <Image style={styles.icon} source={require('../../assets/images/icons/icon-recreation-outline.png')} />;
   };
 
-  async function deleteRow(id){
-   await deleteExpense(id);
-  }
+  
   return (
     <View>
       <>
@@ -56,14 +54,23 @@ const ExpenseCard = ({row}) => {
             </View>
 
             {showingDetails && (
-              <View style={styles.others}>
-                <Text style={styles.category}>{row.category}</Text>
-                <Text style={styles.delete} onPress={async () => await deleteRow(row.id)}>Deletar</Text>
-                <View style={styles.price}>
-                  <Text style={styles.priorityLabel}>Prioridade </Text>
-                  <Text style={{color: `${priorityLevelStyle(row.priority)}`, ...text.medium14}}>
-                    {row.priority.toLowerCase()}
-                  </Text>
+              <View>
+                <View style={styles.others}>
+                  <Text style={styles.category}>{row.category}</Text>
+                  <View style={styles.price}>
+                    <Text style={styles.priorityLabel}>Prioridade </Text>
+                    <Text style={{color: `${priorityLevelStyle(row.priority)}`, ...text.medium14}}>
+                      {priorityLevelText(row.priority)}
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.actions}>
+                  <TouchableOpacity style={styles.edit} onPress={() => handleEditExpense(row)}>
+                    <Icon style={styles.actionsIcons} fill={colors.secondary} name='edit-outline' />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.delete} onPress={async () => await deleteRow(row.id)}>
+                    <Icon style={styles.actionsIcons} fill={colors.error} name='trash-2-outline' />
+                  </TouchableOpacity>
                 </View>
               </View>
             )}
@@ -76,11 +83,11 @@ const ExpenseCard = ({row}) => {
 
 const styles = StyleSheet.create({
   listCard: {
+    ...margins.content,
     backgroundColor: colors.white,
     borderRadius: 15,
     padding: 10,
     marginBottom: 10,
-    ...margins.content,
   },
   icon: {
     width: 20,
@@ -114,12 +121,30 @@ const styles = StyleSheet.create({
     ...text.medium14,
     color: colors.primary,
   },
+  priorityLabel: text.light14,
+  actions: {
+    flex: 1,
+    flexDirection: 'row',
+    alignContent: 'flex-start',
+    position: 'relative',
+    marginTop: 10,
+    height: 35,
+  },
+  edit: {
+    position: 'absolute',
+    right: 35,
+  },
   delete: {
+    position: 'absolute',
+    right: 0,
+  },
+  actionsIcons: {
     ...text.medium14,
     color: colors.error,
-    marginLeft: 30,
+    marginTop: 5,
+    width: 30,
+    height: 30,
   },
-  priorityLabel: text.light14,
 });
 
 export default ExpenseCard;

@@ -1,95 +1,122 @@
-/* eslint-disable radix */
-/* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
-import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import {
-  Button,
-  Icon,
-  Text,
   Modal,
+  Button,
+  Text,
   Input,
   Toggle,
   CheckBox,
   Radio,
   Calendar,
-} from "@ui-kitten/components";
-import { colors, text } from "../../helper/GlobalStyle";
+  Select,
+  SelectItem,
+} from '@ui-kitten/components';
+import { useNavigation } from '@react-navigation/native';
+import { colors, text, margins } from '../../helper/GlobalStyle';
 
-const AddExpenseModal = ({ requisitions }) => {
-  const [visibleModal, setVisibleModal] = useState(false);
+const AddExpensesModal = ({ open, handleAddExpense, handleEditExpense, isEditExpense }) => {
+  const navigation = useNavigation();
   const [fixExpense, setFixExpense] = useState(false);
-  const [paymentType, setPaymentType] = useState("cash");
-  const [priorityLevel, setPriorityLevel] = useState("highest");
+  const [paymentType, setPaymentType] = useState('cash');
+  const [priorityLevel, setPriorityLevel] = useState('highest');
   const [parceledOut, setParceledOut] = useState(false);
   const [date, setDate] = useState(new Date());
+  const [categoryIndex, setCategoryIndex] = useState('');
+  const [category, setCategory] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
 
-  const [category, setCategory] = useState("");
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
+  const categories = [
+    'Alimentação',
+    'Casa',
+    'Estudo',
+    'Lazer',
+    'Saúde',
+    'Transporte',
+    'Vestimenta',
+    'Outros',
+  ];
 
-  const handleCreateExpense = async () => {
-    try {
-      const params = {
-        _id: "5f0e36229b975e3180049945",
-        category,
-        description: title,
-        payDate: date,
-        validity: date,
-        paymentType: {
-          cash: paymentType === "cash" ? true : false,
-          credit: paymentType === "credit" ? true : false,
-          installments: 0,
-          parceledOut,
-        },
-        price: parseInt(price),
-        priority: priorityLevel,
-        type: fixExpense ? "fixed" : "variable",
-      };
-
-      await requisitions.create(params);
-
-      setVisibleModal(false);
-      handleClearSites();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleClearSites = () => {
-    setTitle('');
+  const handleClearFields = () => {
+    setDescription('');
     setFixExpense(false);
     setDate(new Date());
     setPaymentType('cash');
     setPrice('');
     setPriorityLevel('highest');
     setParceledOut(false);
+    setCategoryIndex('');
+    setCategory('');
   };
 
-  const PlusIcon = (props) => <Icon {...props} name="plus-outline" />;
+  useEffect(() => {
+    if (isEditExpense) {
+      console.log('=========>',categories.indexOf(isEditExpense.category))
+      setDescription(isEditExpense.description);
+      setFixExpense(isEditExpense.type === 'fixed');
+      setDate(isEditExpense.payDate);
+      setPaymentType('cash');
+      setPrice(isEditExpense.price.toString());
+      setPriorityLevel(isEditExpense.priority);
+      setParceledOut(false);
+      setCategoryIndex(categories.indexOf(isEditExpense.category));
+      setCategory(isEditExpense.category);
+    } else {
+      handleClearFields()
+    }
+  }, [isEditExpense])
 
-  return (
-    <View style={styles.modal}>
-      {!visibleModal && (
-        <Button
-          onPress={() => setVisibleModal(true)}
-          style={styles.button}
-          accessoryLeft={PlusIcon}
-        />
-      )}
 
-      <Modal
-        visible={visibleModal}
-        style={styles.modal}
-        backdropStyle={styles.backdrop}
-      >
-        <View disabled={true} style={styles.card}>
-          <Text style={styles.title}>Novo gasto</Text>
+  const handleCategory = (index) => {
+    setCategoryIndex(index);
+    setCategory(categories[index.row]);
+  };
+
+  const handleCreateExpense = async () => {
+    const expense = {
+      id: Math.floor(Math.random() * 100000000000000000),
+      category,
+      description,
+      payDate: new Date(),
+      validity: date,
+      price: parseInt(price),
+      priority: priorityLevel,
+      type: fixExpense ? 'fixed' : 'variable',
+    };
+    const paymentType = {
+      cash: paymentType === 'cash',
+      credit: paymentType === 'credit',
+      installments: 0,
+      parceledOut,
+    };
+
+    if (isEditExpense) {
+      expense.id = isEditExpense.id
+      await handleEditExpense(expense, paymentType);
+    } else {
+      await handleAddExpense(expense, paymentType);
+    }
+    handleClearFields();
+  };
+
+  const displayValue = categories[categoryIndex - 1];
+
+  return open ? (
+    <Modal
+      visible={open}
+      backdropStyle={styles.backdrop}
+      style={styles.modal}
+    >
+      <ScrollView>
+        <View style={styles.card}>
+          <Text style={styles.title}>registre um gasto</Text>
           <Input
-            placeholder="Título"
+            placeholder="Nome"
             style={styles.field}
-            value={title}
-            onChange={(event) => setTitle(event.nativeEvent.text)}
+            value={description}
+            onChange={(event) => setDescription(event.nativeEvent.text)}
           />
           <Input
             placeholder="Preço"
@@ -97,12 +124,12 @@ const AddExpenseModal = ({ requisitions }) => {
             value={price}
             onChange={(event) => setPrice(event.nativeEvent.text)}
           />
+
           <Text style={styles.label}>É um gasto fixo?</Text>
           <Toggle
             style={styles.toggle}
             checked={fixExpense}
-            onChange={(isFixed) => setFixExpense(isFixed)}
-          >
+            onChange={(isFixed) => setFixExpense(isFixed)}>
             {!fixExpense ? (
               <Text style={styles.text}>Não</Text>
             ) : (
@@ -110,41 +137,56 @@ const AddExpenseModal = ({ requisitions }) => {
             )}
           </Toggle>
           {fixExpense && (
-            <Calendar date={date} onSelect={(nextDate) => setDate(nextDate)} />
+            <>
+              <Text style={styles.label}>Selecione a data:</Text>
+              <Calendar
+                date={date}
+                onSelect={(nextDate) => setDate(nextDate)}
+                style={styles.calendar}
+              />
+            </>
           )}
 
-          <Input
-            placeholder="Categoria"
+          <Select
             style={styles.field}
-            value={category}
-            onChange={(event) => setCategory(event.nativeEvent.text)}
-          />
+            placeholder="Categoria"
+            selectedIndex={categoryIndex}
+            onSelect={(index) => handleCategory(index)}
+            value={displayValue}
+          >
+
+            <SelectItem title="Alimentação" />
+            <SelectItem title="Casa" />
+            <SelectItem title="Estudo" />
+            <SelectItem title="Lazer" />
+            <SelectItem title="Saúde" />
+            <SelectItem title="Transporte" />
+            <SelectItem title="Vestimenta" />
+            <SelectItem title="Outros" />
+          </Select>
 
           <View style={styles.check}>
             <CheckBox
               style={styles.text}
-              checked={paymentType === "cash"}
-              onChange={() => setPaymentType("cash")}
-            >
+              checked={paymentType === 'cash'}
+              onChange={() => setPaymentType('cash')}>
               À vista
             </CheckBox>
             <CheckBox
               style={styles.text}
-              checked={paymentType === "credit"}
-              onChange={() => setPaymentType("credit")}
-            >
+              checked={paymentType === 'credit'}
+              onChange={() => setPaymentType('credit')}>
               Crédito
             </CheckBox>
           </View>
 
-          {paymentType === "credit" && (
+          {paymentType === 'credit' && (
             <>
               <Text style={styles.label}>Parcelado?</Text>
               <Toggle
                 style={styles.toggle}
                 checked={parceledOut}
-                onChange={(isParceledOut) => setParceledOut(isParceledOut)}
-              >
+                onChange={(isParceledOut) => setParceledOut(isParceledOut)}>
                 {!parceledOut ? (
                   <Text style={styles.text}>Não</Text>
                 ) : (
@@ -159,25 +201,22 @@ const AddExpenseModal = ({ requisitions }) => {
             <Radio
               style={styles.radio}
               status="success"
-              checked={priorityLevel === "high"}
-              onChange={() => setPriorityLevel("high")}
-            >
+              checked={priorityLevel === 'high'}
+              onChange={() => setPriorityLevel('high')}>
               alta
             </Radio>
             <Radio
               style={styles.radio}
               status="warning"
-              checked={priorityLevel === "medium"}
-              onChange={() => setPriorityLevel("medium")}
-            >
+              checked={priorityLevel === 'medium'}
+              onChange={() => setPriorityLevel('medium')}>
               média
             </Radio>
             <Radio
               style={styles.radio}
               status="danger"
-              checked={priorityLevel === "low"}
-              onChange={() => setPriorityLevel("low")}
-            >
+              checked={priorityLevel === 'low'}
+              onChange={() => setPriorityLevel('low')}>
               baixa
             </Radio>
           </View>
@@ -186,73 +225,73 @@ const AddExpenseModal = ({ requisitions }) => {
             <Text style={styles.buttonText}>Registrar</Text>
           </Button>
         </View>
-      </Modal>
-    </View>
-  );
+      </ScrollView>
+    </Modal>
+  ) : <></>;
 };
 
 const styles = StyleSheet.create({
-  title: {
-    ...text.light20,
-    textAlign: "center",
-    marginBottom: 20,
-  },
-  label: {
-    ...text.light18,
-    marginTop: 15,
-  },
-  radios: {
-    flex: 1,
-    flexDirection: "row",
-    marginBottom: 12,
+  modal: {
+    width: 300,
   },
   card: {
+    ...margins.content,
     backgroundColor: colors.white,
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderRadius: 5,
+    borderRadius: 20,
+  },
+  title: {
+    ...text.regular20,
+    marginTop: 20,
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  field: { marginBottom: 10 },
+  label: {
+    ...text.light18,
+    marginTop: 5,
+    marginBottom: 5,
+  },
+  calendar: {
+    alignSelf: 'center',
+    marginBottom: 15,
   },
   check: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
     marginTop: 10,
   },
+  radios: {
+    flex: 1,
+    flexDirection: 'row',
+    marginBottom: 12,
+  },
+  radio: {
+    marginTop: 5,
+  },
   toggle: {
-    marginBottom: 15,
-    marginTop: 4,
-    alignSelf: "flex-start",
-  },
-  field: {
-    marginBottom: 5,
-  },
-  modal: {
-    width: 380,
-    padding: 10,
+    marginBottom: 20,
+    alignSelf: 'flex-start',
   },
   button: {
     width: 50,
     height: 50,
     borderRadius: 5,
-    position: "absolute",
+    position: 'absolute',
     right: 10,
     bottom: -650,
     zIndex: 999,
   },
   button2: {
     marginTop: 20,
+    marginBottom: 20,
   },
   buttonText: {
     ...text.regular18,
     color: colors.white,
   },
-  radio: {
-    marginTop: 5,
-  },
   backdrop: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
 });
 
-export default AddExpenseModal;
+export default AddExpensesModal;

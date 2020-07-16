@@ -51,3 +51,16 @@ export const priorityLevelStyle = (level) => {
   );
   return result.length > 0 ? result[0].color : colorScheme[0].color;
 };
+
+export const priorityLevelText = (level) => {
+  const levels = [
+    { priority: 'high', text: 'alta' },
+    { priority: 'medium', text: 'média' },
+    { priority: 'low', text: 'baixa' },
+  ];
+
+  const result = levels.filter(
+    (priorityLevel) => priorityLevel.priority === level
+  );
+  return result.length > 0 ? result[0].text : levels[0].text;
+};

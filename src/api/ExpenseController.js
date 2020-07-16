@@ -3,7 +3,7 @@ import getRealm from '../database/realm';
 
 const getExpenses = async () => {
   const realm = await getRealm();
-  const response = realm.objects('Expense');
+  const response = realm.objects('Expense').sorted('payDate', true);
   return response;
 };
 

@@ -62,8 +62,8 @@ const AddExpenses = () => {
     const expense = {
       id: Math.floor(Math.random() * 100000000000000000),
       category,
-      description: description,
-      payDate: date,
+      description,
+      payDate: new Date(),
       validity: date,
       price: parseInt(price),
       priority: priorityLevel,
@@ -76,7 +76,8 @@ const AddExpenses = () => {
       parceledOut,
     };
     await createExpense(expense, paymentType);
-    handleClearFields();
+    handleClearFields();Main
+    navigation.navigate('Main');
     navigation.navigate('Expenses');
   };
 

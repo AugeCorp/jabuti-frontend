@@ -2,31 +2,28 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Icon, Text, Modal, Card, Input, Toggle, Calendar } from '@ui-kitten/components';
-import {createIncome} from '../../api/IncomeController';
+import { createIncome } from '../../api/IncomeController';
 
 const AddIncomeModal = () => {
   const [visibleModal, setVisibleModal] = useState(false);
-  const [fixExpense, setFixExpense] = useState(false);
+  const [fixIncome, setFixIncome] = useState(false);
   const [date, setDate] = useState(new Date());
 
   const PlusIcon = (props) => (<Icon {...props} name="plus-outline"/>);
 
-  const onFixExpenseChange = (checked) => {
-    setFixExpense(checked);
+  const onFixIncomeChange = (checked) => {
+    setFixIncome(checked);
   };
 
   
-  const handleCreateExpense = async () => {
+  const handleCreateIncome = async () => {
     const income = {
       id: Math.floor(Math.random() * 100000000000000000),
-      type: fixExpense? 'fixed', 'variable',
-      value: {type: 'bool', default: true},
-      receiptDate: {type: 'date'},
-    },
-    value: 10000,
-    type: 'fixed',
-    receiptDate: new Date(),
+      type: fixIncome ? 'fixed' : 'variable',
+      value: 100000,
+      receiptDate: new Date(),
     };
+    setVisibleModal(false);
   };
 
   return (
@@ -38,17 +35,17 @@ const AddIncomeModal = () => {
           <Input placeholder="Nome" />
           <Input placeholder="Valor" />
           <Text>É uma renda fixa?</Text>
-          <Toggle checked={fixExpense} onChange={(isFixed) => onFixExpenseChange(isFixed)}>
-            {fixExpense === false ? <Text> Não</Text> : <Text> Sim</Text>}
+          <Toggle checked={fixIncome} onChange={(isFixed) => onFixIncomeChange(isFixed)}>
+            {fixIncome === false ? <Text> Não</Text> : <Text> Sim</Text>}
           </Toggle>
-          {fixExpense && (
+          {fixIncome && (
             <>
               <Text>Qual o dia do recebimento?</Text>
               <Calendar date={date} onSelect={nextDate => setDate(nextDate)} />
             </>
           )}
 
-          <Button style={styles.button2} onPress={() => { setVisibleModal(false); }}>
+          <Button style={styles.button2} onPress={() => handleCreateIncome()}>
             Registrar
           </Button>
         </Card>

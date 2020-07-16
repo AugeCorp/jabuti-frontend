@@ -7,6 +7,8 @@ import RedirectCard from '../components/RedirectCard'
 import { colors, text, margins } from '../../helper/GlobalStyle'
 import { formatMoney } from '../../helper/MoneyHelper'
 import { expenses as expensesData, incomes as incomesData, user as userData } from '../../helper/DataTest'
+import { getExpenses } from '../../api/ExpenseController';
+
 
 const Main = () => {
   const [moneyWasSaved, setMoneyWasSaved] = useState(true)
@@ -22,7 +24,10 @@ const Main = () => {
   });
 
 
-  useEffect(() => {
+  useEffect(async() => {
+    const expensesData = await getExpenses();
+
+
     // Setting expenses data
     let majorExpense = 0
     let minorExpense = 0

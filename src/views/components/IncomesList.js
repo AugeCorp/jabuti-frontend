@@ -19,7 +19,7 @@ const IncomesList = ({ incomes, totalIncome }) => {
       <View style={styles.card}>
         <ScrollView>
           {rows.map((income, idx) => (
-            <Fragment key={income._id}>
+            <Fragment key={income.id}>
               {(idx === 0 || income.type !== rows[idx - 1].type) && (
                 <Text style={styles.type}>{translateType(income.type)}</Text>
               )}

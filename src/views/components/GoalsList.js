@@ -32,14 +32,14 @@ const GoalsList = ({ goals, totalSaved }) => {
         <>
           <Text style={styles.type1}>pendentes</Text>
           {goalsPending.map((goal) =>
-            <GoalCard goal={goal} percent={toPercent(goal.price, goal.moneySaved)} color={colors.primary} key={goal._id} />)}
+            <GoalCard goal={goal} percent={toPercent(goal.price, goal.moneySaved)} color={colors.primary} key={goal.id} />)}
         </>
       )}
       {goalsConquered && (
         <>
           <Text style={styles.type2}>conquistados</Text>
           {goalsConquered.map((goal) =>
-            <GoalCard goal={goal} percent={toPercent(goal.price, goal.moneySaved)} color={colors.secondary} key={goal._id} />)}
+            <GoalCard goal={goal} percent={toPercent(goal.price, goal.moneySaved)} color={colors.secondary} key={goal.id} />)}
         </>
       )}
     </ScrollView>
