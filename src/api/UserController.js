@@ -28,4 +28,13 @@ const updateUser = async (params) => {
   return User;
 };
 
-export {getUser, updateUser, createUser};
+const deleteUser = async () => {
+  const realm = await getRealm();
+  realm.write(() => {
+    realm.delete(realm.objects('User'));
+  });
+  let User = await getUser();
+  return User;
+};
+
+export {getUser, updateUser, createUser, deleteUser};

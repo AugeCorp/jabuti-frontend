@@ -8,6 +8,26 @@ import AddButton from '../components/AddButton'
 const expense = new Expense();
 
 const Expenses = () => {
+  const handleExpenseRequisitions = {
+    create: async (params) => {
+      try {
+        const response = await expense.create(params);
+
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    show: async () => {
+      try {
+        const response = await expense.show({ _id: "5f0e36229b975e3180049945" });
+
+        return response;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
+  
   return (
     <>
       <ScrollView style={styles.view}>

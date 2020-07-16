@@ -3,20 +3,25 @@ import { View, StyleSheet, ScrollView } from 'react-native'
 import { Input, Text } from '@ui-kitten/components'
 import ExpenseCard from './ExpenseCard'
 import { text } from '../../helper/GlobalStyle'
-import { expenses } from '../../helper/DataTest'
+import { dateToString } from '../../helper/DataHelper'
 
 const ExpensesList = ({ requisitions }) => {
   const [rows, setRows] = useState([])
 
   const handleGetExpense = async () => {
     const response = await requisitions.show()
-
+    const rows = response.expenses.expenses;
+    const rowsArr = [];
+    rows.map(item => {
+      item.payDate = dateToString(new Date(item.payDate))
+      rowsArr.push(item);
+    })
+    console.log(rowsArr)
     setRows(response.expenses.expenses)
   }
   
   useEffect(() => {
-    // handleGetExpense();
-    setRows(expenses)
+    handleGetExpense();
   }, []);
 
   const handleTextInput = (value) => {

@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from 'react'
-import { StyleSheet, ScrollView, Text, Image, View } from 'react-native'
-import AddIncomeModal from '../components/AddIncomeModal'
-import IncomesList from '../components/IncomesList'
-import { colors, margins, text } from '../../helper/GlobalStyle'
-import { incomes } from '../../helper/DataTest'
-import { formatMoney } from '../../helper/MoneyHelper'
-
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, ScrollView, Text, Image, View } from 'react-native';
+import AddIncomeModal from '../components/AddIncomeModal';
+import IncomesList from '../components/IncomesList';
+import { colors, margins, text } from '../../helper/GlobalStyle';
+import { incomes } from '../../helper/DataTest';
+import { formatMoney } from '../../helper/MoneyHelper';
 
 const Incomes = () => {
-  const [totalIncome, setTotalIncome] = useState('-')
+  const [totalIncome, setTotalIncome] = useState('-');
 
   useEffect(() => {
     const totalValue = incomes.reduce((acumulator, income) => {
       return acumulator + income.value;
     }, 0);
-    setTotalIncome(totalValue)
-  }, [incomes])
-
+    setTotalIncome(totalValue);
+  }, [incomes]);
 
   return (
     <ScrollView style={styles.view}>
       <View style={styles.totalIncome}>
-        <Image style={styles.icon} source={require('../../assets/images/icons/income-icon.png')} />
+        <Image
+          style={styles.icon}
+          source={require('../../assets/images/icons/income-icon.png')}
+        />
         <View>
           <Text style={styles.label}>total do mês:</Text>
           <View style={styles.moneyCard}>
@@ -34,7 +35,7 @@ const Incomes = () => {
       <AddIncomeModal />
     </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   view: margins.global,
@@ -43,34 +44,34 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   icon: {
     marginRight: 8,
     marginLeft: 10,
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   label: {
     ...text.light20,
-    color: colors.midGrey,
+    color: colors.midGrey
   },
   moneyCard: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: -10,
+    marginTop: -10
   },
   moneySign: {
     ...text.regular20,
     color: colors.primary,
     marginRight: 5,
     alignSelf: 'flex-end',
-    paddingBottom: 5,
+    paddingBottom: 5
   },
   money: {
     color: colors.primary,
     ...text.regular35,
-    alignSelf: 'flex-end',
-  }
-})
+    alignSelf: 'flex-end'
+  },
+});
 
-export default Incomes
+export default Incomes;
