@@ -38,6 +38,7 @@ const Register = ({ setLoading }) => {
             style={styles.field}
             textContentType="password"
             value={password}
+            secureTextEntry={true}
             onChange={(event) => setPassword(event.nativeEvent.text)}
           />
           <Input
@@ -45,6 +46,7 @@ const Register = ({ setLoading }) => {
             style={styles.field}
             textContentType="password"
             value={confirm}
+            secureTextEntry={true}
             onChange={(event) => setConfirm(event.nativeEvent.text)}
           />
         </View>

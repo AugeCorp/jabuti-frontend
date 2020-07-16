@@ -41,6 +41,7 @@ const Login = ({ setLoading }) => {
             style={styles.field}
             textContentType="password"
             value={password}
+            secureTextEntry={true}
             onChange={(event) => setPassword(event.nativeEvent.text)}
           />
           <Button style={styles.button} onPress={() => handleLoginUser()}>entrar</Button>
