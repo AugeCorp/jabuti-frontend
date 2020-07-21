@@ -27,7 +27,7 @@ const Incomes = () => {
           <Text style={styles.label}>total do mês:</Text>
           <View style={styles.moneyCard}>
             <Text style={styles.moneySign}>R$</Text>
-            <Text style={styles.money}>{formatMoney(totalIncome)}</Text>
+            <Text style={styles.money}>{totalIncome === '-' ? '-' : formatMoney(totalIncome)}</Text>
           </View>
         </View>
       </View>

@@ -10,8 +10,8 @@ const Goals = () => {
   const [totalSaved, setTotalSaved] = useState('-')
 
   useEffect(() => {
-    const totalValue = goals.reduce((acumulator, income) => {
-      return acumulator + income.value;
+    const totalValue = goals.reduce((acumulator, goal) => {
+      return acumulator + goal.moneySaved;
     }, 0);
     setTotalSaved(totalValue)
   }, [goals])
@@ -25,7 +25,7 @@ const Goals = () => {
           <Text style={styles.label}>você já economizou</Text>
           <View style={styles.moneyCard}>
             <Text style={styles.moneySign}>R$</Text>
-            <Text style={styles.money}>{formatMoney(totalSaved)}</Text>
+            <Text style={styles.money}>{totalSaved === '-' ? '-' : formatMoney(totalSaved)}</Text>
           </View>
         </View>
       </View>

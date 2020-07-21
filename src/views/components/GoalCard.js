@@ -63,7 +63,7 @@ const IncomeCard = ({ goal, percent, color }) => {
         {showingDetails && (
           <View style={styles.others}>
             <GoalGraphic
-              graphicColor={colors.primary}
+              graphicColor={color}
               totalValue={goal.price}
               graphicValue={goal.moneySaved}
             />
